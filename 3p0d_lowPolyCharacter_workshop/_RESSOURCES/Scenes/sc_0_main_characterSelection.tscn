@@ -1,16 +1,17 @@
-[gd_scene load_steps=16 format=3 uid="uid://c13gff5yjmbtu"]
+[gd_scene load_steps=15 format=3 uid="uid://c13gff5yjmbtu"]
 
 [ext_resource type="FontFile" uid="uid://tqn06fp72mux" path="res://_ART/_UI/Fonts/Bungee-Regular.ttf" id="1_1dhyi"]
 [ext_resource type="PackedScene" uid="uid://bxfm3idow87ye" path="res://_ART/_3D/3DModels/3d_cylinderStage.glb" id="1_a1c1a"]
 [ext_resource type="Script" path="res://_DEV/Scripts/spawnCharacter.gd" id="1_pmp4t"]
 [ext_resource type="Texture2D" uid="uid://bvsrygtgd2tnv" path="res://_ART/_UI/Sprites/S_ui_arrow_right.png" id="1_s1lca"]
-[ext_resource type="PackedScene" uid="uid://c6wuq8tuh4msj" path="res://_ART/_3D/3DModels/3d_character_astronaut.glb" id="2_6ip65"]
 [ext_resource type="Texture2D" uid="uid://b47x66qlustwh" path="res://_ART/_UI/Sprites/S_ui_arrow_left.png" id="2_hy4iq"]
+[ext_resource type="PackedScene" uid="uid://d6al8mk3mthk" path="res://_RESSOURCES/Prefabs/P_character_placeholder.tscn" id="2_nap4n"]
 [ext_resource type="FontFile" uid="uid://b5xhpgjw4jjmk" path="res://_ART/_UI/Fonts/LilitaOne-Regular.ttf" id="2_wjmu8"]
-[ext_resource type="PackedScene" uid="uid://bu5yasf6a35be" path="res://_ART/_3D/3DModels/3d_character_littleWitch.glb" id="3_t1o43"]
+[ext_resource type="PackedScene" uid="uid://k4m5bi1o7pit" path="res://_RESSOURCES/Prefabs/P_character_astronaute.tscn" id="3_2ts3b"]
 [ext_resource type="Texture2D" uid="uid://dkol5omvnl8o5" path="res://_ART/_UI/Sprites/S_ui_character.png" id="3_v5mr5"]
-[ext_resource type="PackedScene" uid="uid://b4hwodsxj64kk" path="res://_ART/_3D/3DModels/3d_character_placeholder.glb" id="4_vfsf2"]
-[ext_resource type="PackedScene" uid="uid://unev5kdbb2l3" path="res://_ART/_3D/3DModels/3d_character_tvPod.glb" id="5_rc5vs"]
+
+[sub_resource type="Environment" id="Environment_gy0qs"]
+background_mode = 1
 
 [sub_resource type="LabelSettings" id="LabelSettings_b1iva"]
 font = ExtResource("1_1dhyi")
@@ -33,10 +34,20 @@ font_size = 30
 [node name="Camera3D" type="Camera3D" parent="_CamCtrl"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 3.5)
 
-[node name="_CharacterHolder" type="Node3D" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="_CamCtrl"]
+environment = SubResource("Environment_gy0qs")
+
+[node name="_CharacterHolder" type="Node3D" parent="." node_paths=PackedStringArray("m_characterName", "m_artistName", "m_characterDescription", "m_background", "m_spt01", "m_spt02", "m_spt03")]
 script = ExtResource("1_pmp4t")
 m_rotSpd = 50
-m_characters = Array[PackedScene]([ExtResource("2_6ip65"), ExtResource("3_t1o43"), ExtResource("4_vfsf2"), ExtResource("5_rc5vs")])
+m_characters = Array[PackedScene]([ExtResource("2_nap4n"), ExtResource("3_2ts3b")])
+m_characterName = NodePath("../_UI/Control_Sprites/VBox_texts/Label_CharacterName")
+m_artistName = NodePath("../_UI/Control_Sprites/VBox_texts/Label_ArtistName")
+m_characterDescription = NodePath("../_UI/Control_Sprites/VBox_texts/Label_Description")
+m_background = NodePath("../_CamCtrl/WorldEnvironment")
+m_spt01 = NodePath("../_UI/Control_Sprites/VBox_sprites/HBox_sprite1/TextureRect")
+m_spt02 = NodePath("../_UI/Control_Sprites/VBox_sprites/HBox_sprite2/TextureRect2")
+m_spt03 = NodePath("../_UI/Control_Sprites/VBox_sprites/HBox_sprite3/TextureRect3")
 
 [node name="_Background" type="Node3D" parent="."]
 

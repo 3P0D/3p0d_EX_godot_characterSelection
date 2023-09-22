@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://d6al8mk3mthk"]
+
+[ext_resource type="PackedScene" uid="uid://b4hwodsxj64kk" path="res://_ART/_3D/3DModels/3d_character_placeholder.glb" id="1_jnup6"]
+
+[node name="P_character_template" type="Node3D"]
+metadata/backgroundColor = Color(0.160784, 0.160784, 0.160784, 1)
+metadata/textColor = Color(1, 1, 1, 1)
+metadata/headersColor = Color(0.67451, 0.67451, 0.67451, 1)
+metadata/characterName = "Placeholder"
+metadata/artistName = "Template"
+metadata/characterDescription = "This is a placeholder."
+metadata/image01 = "res://_ART/_UI/Sprites/S_ui_cube.png"
+metadata/image02 = "res://_ART/_UI/Sprites/S_ui_character.png"
+metadata/image03 = "res://_ART/_UI/Sprites/S_ui_gamepad.png"
+
+[node name="3d_character_placeholder" parent="." instance=ExtResource("1_jnup6")]

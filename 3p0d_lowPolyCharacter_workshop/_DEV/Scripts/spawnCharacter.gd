@@ -8,6 +8,10 @@ extends Node3D
 @export var m_characterName : Label
 @export var m_artistName : Label
 @export var m_characterDescription : Label
+@export var m_background : WorldEnvironment
+@export var m_spt01 : TextureRect
+@export var m_spt02 : TextureRect
+@export var m_spt03 : TextureRect
 
 #PRIVATE VARIABLES:
 var current = 0
@@ -38,6 +42,17 @@ func _updateCharModel(val):
 	
 	#---adds the model of the current index of the m_characters.
 	add_child(m_characters[current].instantiate())
+	
+	_updateInfos()
+
+func _updateInfos():
+	m_characterName.text = str(get_child(1).get_meta('characterName'))
+	m_artistName.text = str(get_child(1).get_meta('artistName'))
+	m_characterDescription.text = str(get_child(1).get_meta('characterDescription'))
+	m_background.environment.set_bg_color(get_child(1).get_meta('backgroundColor'))
+	m_spt01.set_texture(load(str(get_child(1).get_meta('image01'))))
+	m_spt02.set_texture(load(str(get_child(1).get_meta('image02'))))
+	m_spt03.set_texture(load(str(get_child(1).get_meta('image03'))))
 
 
 func _on_button_arrow_right_pressed():

@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://k4m5bi1o7pit"]
+
+[ext_resource type="PackedScene" uid="uid://c6wuq8tuh4msj" path="res://_ART/_3D/3DModels/3d_character_astronaut.glb" id="1_0hiwr"]
+
+[node name="P_character_template" type="Node3D"]
+metadata/backgroundColor = Color(0.290196, 0.2, 0.886275, 1)
+metadata/textColor = Color(1, 1, 1, 1)
+metadata/headersColor = Color(0.976471, 0.811765, 0, 1)
+metadata/characterName = "Astronaute"
+metadata/artistName = "Petit Prince"
+metadata/characterDescription = "Ceci est un astronaute."
+metadata/image01 = "res://_ART/_UI/Sprites/S_ui_rocket.png"
+metadata/image02 = "res://_ART/_UI/Sprites/S_ui_solarSystem.png"
+metadata/image03 = "res://_ART/_UI/Sprites/S_ui_spaceSuit.png"
+
+[node name="3d_character_astronaut" parent="." instance=ExtResource("1_0hiwr")]
