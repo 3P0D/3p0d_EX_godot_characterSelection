@@ -1,12 +1,16 @@
-[gd_scene load_steps=12 format=3 uid="uid://c13gff5yjmbtu"]
+[gd_scene load_steps=16 format=3 uid="uid://c13gff5yjmbtu"]
 
 [ext_resource type="FontFile" uid="uid://tqn06fp72mux" path="res://_ART/_UI/Fonts/Bungee-Regular.ttf" id="1_1dhyi"]
 [ext_resource type="PackedScene" uid="uid://bxfm3idow87ye" path="res://_ART/_3D/3DModels/3d_cylinderStage.glb" id="1_a1c1a"]
 [ext_resource type="Script" path="res://_DEV/Scripts/spawnCharacter.gd" id="1_pmp4t"]
 [ext_resource type="Texture2D" uid="uid://bvsrygtgd2tnv" path="res://_ART/_UI/Sprites/S_ui_arrow_right.png" id="1_s1lca"]
+[ext_resource type="PackedScene" uid="uid://c6wuq8tuh4msj" path="res://_ART/_3D/3DModels/3d_character_astronaut.glb" id="2_6ip65"]
 [ext_resource type="Texture2D" uid="uid://b47x66qlustwh" path="res://_ART/_UI/Sprites/S_ui_arrow_left.png" id="2_hy4iq"]
 [ext_resource type="FontFile" uid="uid://b5xhpgjw4jjmk" path="res://_ART/_UI/Fonts/LilitaOne-Regular.ttf" id="2_wjmu8"]
+[ext_resource type="PackedScene" uid="uid://bu5yasf6a35be" path="res://_ART/_3D/3DModels/3d_character_littleWitch.glb" id="3_t1o43"]
 [ext_resource type="Texture2D" uid="uid://dkol5omvnl8o5" path="res://_ART/_UI/Sprites/S_ui_character.png" id="3_v5mr5"]
+[ext_resource type="PackedScene" uid="uid://b4hwodsxj64kk" path="res://_ART/_3D/3DModels/3d_character_placeholder.glb" id="4_vfsf2"]
+[ext_resource type="PackedScene" uid="uid://unev5kdbb2l3" path="res://_ART/_3D/3DModels/3d_character_tvPod.glb" id="5_rc5vs"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_b1iva"]
 font = ExtResource("1_1dhyi")
@@ -23,7 +27,6 @@ font = ExtResource("2_wjmu8")
 font_size = 30
 
 [node name="Main_CharacterSelection" type="Node3D"]
-script = ExtResource("1_pmp4t")
 
 [node name="_CamCtrl" type="Node3D" parent="."]
 
@@ -31,6 +34,9 @@ script = ExtResource("1_pmp4t")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 3.5)
 
 [node name="_CharacterHolder" type="Node3D" parent="."]
+script = ExtResource("1_pmp4t")
+m_rotSpd = 50
+m_characters = Array[PackedScene]([ExtResource("2_6ip65"), ExtResource("3_t1o43"), ExtResource("4_vfsf2"), ExtResource("5_rc5vs")])
 
 [node name="_Background" type="Node3D" parent="."]
 
@@ -255,3 +261,6 @@ offset_bottom = 4.0
 grow_vertical = 2
 icon = ExtResource("2_hy4iq")
 flat = true
+
+[connection signal="pressed" from="_UI/Ctrl_Arrows/Button_arrowRight" to="_CharacterHolder" method="_on_button_arrow_right_pressed"]
+[connection signal="pressed" from="_UI/Ctrl_Arrows/Button_arrowLeft" to="_CharacterHolder" method="_on_button_arrow_left_pressed"]
