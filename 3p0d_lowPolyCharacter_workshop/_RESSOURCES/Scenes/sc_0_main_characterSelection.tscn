@@ -4,10 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://bxfm3idow87ye" path="res://_ART/_3D/3DModels/3d_cylinderStage.glb" id="1_a1c1a"]
 [ext_resource type="Script" path="res://_DEV/Scripts/spawnCharacter.gd" id="1_pmp4t"]
 [ext_resource type="Texture2D" uid="uid://bvsrygtgd2tnv" path="res://_ART/_UI/Sprites/S_ui_arrow_right.png" id="1_s1lca"]
-[ext_resource type="PackedScene" uid="uid://b4hwodsxj64kk" path="res://_ART/_3D/3DModels/3d_character_placeholder.glb" id="2_btig1"]
 [ext_resource type="Texture2D" uid="uid://b47x66qlustwh" path="res://_ART/_UI/Sprites/S_ui_arrow_left.png" id="2_hy4iq"]
 [ext_resource type="FontFile" uid="uid://b5xhpgjw4jjmk" path="res://_ART/_UI/Fonts/LilitaOne-Regular.ttf" id="2_wjmu8"]
 [ext_resource type="Texture2D" uid="uid://dkol5omvnl8o5" path="res://_ART/_UI/Sprites/S_ui_character.png" id="3_v5mr5"]
+[ext_resource type="PackedScene" uid="uid://fpf6mfa8vdpw" path="res://_RESSOURCES/Prefabs/P_character_placeholder.tscn" id="3_wsqov"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_b1iva"]
 font = ExtResource("1_1dhyi")
@@ -37,7 +37,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 3.5)
 
 [node name="3d_cylinderStage" parent="_Background" instance=ExtResource("1_a1c1a")]
 
-[node name="3d_character_placeholder" parent="_Background" instance=ExtResource("2_btig1")]
+[node name="P_character_placeholder" parent="_Background" instance=ExtResource("3_wsqov")]
 
 [node name="_UI" type="Control" parent="."]
 layout_mode = 3
