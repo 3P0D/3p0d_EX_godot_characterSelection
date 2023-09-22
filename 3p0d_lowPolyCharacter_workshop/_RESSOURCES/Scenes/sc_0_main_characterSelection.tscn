@@ -1,0 +1,260 @@
+[gd_scene load_steps=13 format=3 uid="uid://c13gff5yjmbtu"]
+
+[ext_resource type="FontFile" uid="uid://tqn06fp72mux" path="res://_ART/_UI/Fonts/Bungee-Regular.ttf" id="1_1dhyi"]
+[ext_resource type="PackedScene" uid="uid://bxfm3idow87ye" path="res://_ART/_3D/3DModels/3d_cylinderStage.glb" id="1_a1c1a"]
+[ext_resource type="Script" path="res://_DEV/Scripts/spawnCharacter.gd" id="1_pmp4t"]
+[ext_resource type="Texture2D" uid="uid://bvsrygtgd2tnv" path="res://_ART/_UI/Sprites/S_ui_arrow_right.png" id="1_s1lca"]
+[ext_resource type="PackedScene" uid="uid://b4hwodsxj64kk" path="res://_ART/_3D/3DModels/3d_character_placeholder.glb" id="2_btig1"]
+[ext_resource type="Texture2D" uid="uid://b47x66qlustwh" path="res://_ART/_UI/Sprites/S_ui_arrow_left.png" id="2_hy4iq"]
+[ext_resource type="FontFile" uid="uid://b5xhpgjw4jjmk" path="res://_ART/_UI/Fonts/LilitaOne-Regular.ttf" id="2_wjmu8"]
+[ext_resource type="Texture2D" uid="uid://dkol5omvnl8o5" path="res://_ART/_UI/Sprites/S_ui_character.png" id="3_v5mr5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_b1iva"]
+font = ExtResource("1_1dhyi")
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_4vmgu"]
+font = ExtResource("2_wjmu8")
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_cnbh5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_60ufk"]
+font = ExtResource("2_wjmu8")
+font_size = 30
+
+[node name="Main_CharacterSelection" type="Node3D"]
+script = ExtResource("1_pmp4t")
+
+[node name="_CamCtrl" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="_CamCtrl"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 3.5)
+
+[node name="_CharacterHolder" type="Node3D" parent="."]
+
+[node name="_Background" type="Node3D" parent="."]
+
+[node name="3d_cylinderStage" parent="_Background" instance=ExtResource("1_a1c1a")]
+
+[node name="3d_character_placeholder" parent="_Background" instance=ExtResource("2_btig1")]
+
+[node name="_UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control_Sprites" type="Control" parent="_UI"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -40.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox_texts" type="VBoxContainer" parent="_UI/Control_Sprites"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -900.0
+offset_top = -139.5
+offset_right = -300.0
+offset_bottom = 139.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Label_CharacterName" type="Label" parent="_UI/Control_Sprites/VBox_texts"]
+layout_mode = 2
+text = "Character Name"
+label_settings = SubResource("LabelSettings_b1iva")
+horizontal_alignment = 2
+
+[node name="Label_ArtistName" type="Label" parent="_UI/Control_Sprites/VBox_texts"]
+layout_mode = 2
+text = "Artist Name"
+label_settings = SubResource("LabelSettings_4vmgu")
+horizontal_alignment = 2
+uppercase = true
+
+[node name="Label_Description" type="Label" parent="_UI/Control_Sprites/VBox_texts"]
+layout_mode = 2
+text = "Character DescriptionLorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque rutrum lacus eget mattis posuere. Fusce auctor, turpis eget dictum dictum, quam augue vehicula tortor, sed tincidunt turpis risus elementum orci."
+label_settings = SubResource("LabelSettings_cnbh5")
+horizontal_alignment = 2
+autowrap_mode = 3
+
+[node name="VBox_sprites" type="VBoxContainer" parent="_UI/Control_Sprites"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 300.0
+offset_top = -180.0
+offset_right = 900.0
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="HBox_sprite1" type="HBoxContainer" parent="_UI/Control_Sprites/VBox_sprites"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="_UI/Control_Sprites/VBox_sprites/HBox_sprite1"]
+custom_minimum_size = Vector2(85, 85)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_v5mr5")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="_UI/Control_Sprites/VBox_sprites/HBox_sprite1"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="_UI/Control_Sprites/VBox_sprites/HBox_sprite1/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+text = "Capacité/Trait 01"
+label_settings = SubResource("LabelSettings_60ufk")
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="_UI/Control_Sprites/VBox_sprites/HBox_sprite1/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+text = "Description de la capacité/du trait 01."
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="HBox_sprite2" type="HBoxContainer" parent="_UI/Control_Sprites/VBox_sprites"]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="_UI/Control_Sprites/VBox_sprites/HBox_sprite2"]
+custom_minimum_size = Vector2(85, 85)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_v5mr5")
+expand_mode = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="_UI/Control_Sprites/VBox_sprites/HBox_sprite2"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="_UI/Control_Sprites/VBox_sprites/HBox_sprite2/VBoxContainer2"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+text = "Capacité/Trait 02"
+label_settings = SubResource("LabelSettings_60ufk")
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="_UI/Control_Sprites/VBox_sprites/HBox_sprite2/VBoxContainer2"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+text = "Description de la capacité/du trait 02."
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="HBox_sprite3" type="HBoxContainer" parent="_UI/Control_Sprites/VBox_sprites"]
+layout_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="_UI/Control_Sprites/VBox_sprites/HBox_sprite3"]
+custom_minimum_size = Vector2(85, 85)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_v5mr5")
+expand_mode = 1
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="_UI/Control_Sprites/VBox_sprites/HBox_sprite3"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="_UI/Control_Sprites/VBox_sprites/HBox_sprite3/VBoxContainer3"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+text = "Capacité/Trait 03"
+label_settings = SubResource("LabelSettings_60ufk")
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="_UI/Control_Sprites/VBox_sprites/HBox_sprite3/VBoxContainer3"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+text = "Description de la capacité/du trait 03."
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Ctrl_Arrows" type="Control" parent="_UI"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -500.0
+offset_top = -230.0
+offset_right = 500.0
+offset_bottom = -102.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Button_arrowRight" type="Button" parent="_UI/Ctrl_Arrows"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -4.0
+offset_bottom = 4.0
+grow_horizontal = 0
+grow_vertical = 2
+icon = ExtResource("1_s1lca")
+flat = true
+icon_alignment = 1
+
+[node name="Button_arrowLeft" type="Button" parent="_UI/Ctrl_Arrows"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -4.0
+offset_right = 8.0
+offset_bottom = 4.0
+grow_vertical = 2
+icon = ExtResource("2_hy4iq")
+flat = true
