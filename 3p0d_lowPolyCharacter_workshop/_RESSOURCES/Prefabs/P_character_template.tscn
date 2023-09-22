@@ -1,9 +1,0 @@
-[gd_scene format=3 uid="uid://dadyi4qodsak4"]
-
-[node name="P_character_template" type="Node3D"]
-metadata/backgroundColor = Color(0.160784, 0.160784, 0.160784, 1)
-metadata/textColor = Color(1, 1, 1, 1)
-metadata/headersColor = Color(0.67451, 0.67451, 0.67451, 1)
-metadata/characterName = "TEMPLATE"
-metadata/artistName = "TEMPLATE"
-metadata/characterDescription = "TEMPLATE"

@@ -11,7 +11,11 @@ extends Node3D
 @export var m_background : WorldEnvironment
 @export var m_spt01 : TextureRect
 @export var m_spt02 : TextureRect
-@export var m_spt03 : TextureRect
+@export var m_spt01text : Label
+@export var m_spt01title : Label
+@export var m_spt02text : Label
+@export var m_spt02title : Label
+@export var m_cylinder : MeshInstance3D
 
 #PRIVATE VARIABLES:
 var current = 0
@@ -47,13 +51,20 @@ func _updateCharModel(val):
 
 func _updateInfos():
 	m_characterName.text = str(get_child(1).get_meta('characterName'))
-	m_artistName.text = str(get_child(1).get_meta('artistName'))
+	m_artistName.text = "Réalisé par:  " + str(get_child(1).get_meta('artistName'))
 	m_characterDescription.text = str(get_child(1).get_meta('characterDescription'))
+	
 	m_background.environment.set_bg_color(get_child(1).get_meta('backgroundColor'))
+	
 	m_spt01.set_texture(load(str(get_child(1).get_meta('image01'))))
 	m_spt02.set_texture(load(str(get_child(1).get_meta('image02'))))
-	m_spt03.set_texture(load(str(get_child(1).get_meta('image03'))))
-
+	
+	m_spt01title.text = str(get_child(1).get_meta('img01title'))
+	m_spt01text.text = str(get_child(1).get_meta('img01text'))
+	m_spt02title.text = str(get_child(1).get_meta('img02title'))
+	m_spt02text.text = str(get_child(1).get_meta('img02text'))
+	
+	m_cylinder.mesh.surface_get_material(0).albedo_color = get_child(1).get_meta('backgroundColor')
 
 func _on_button_arrow_right_pressed():
 	_updateCharModel(1)
