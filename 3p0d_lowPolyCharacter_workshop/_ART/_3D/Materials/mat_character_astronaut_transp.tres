@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://fqawaltbnyd"]
+
+[ext_resource type="Texture2D" uid="uid://cfomtmxeq4lm3" path="res://_ART/_3D/Textures/T_character_astronaut.png" id="1_i51ob"]
+
+[resource]
+resource_name = "mat_character_astronaut"
+transparency = 1
+shading_mode = 0
+albedo_color = Color(1, 1, 1, 0.196078)
+albedo_texture = ExtResource("1_i51ob")
+texture_filter = 1

@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cghyj2ysa510v"]
+
+[ext_resource type="Texture2D" uid="uid://darki7askdlna" path="res://_ART/_3D/Textures/T_character_littleWitch.png" id="1_disgl"]
+
+[resource]
+resource_name = "mat_character_littleWitch"
+shading_mode = 0
+albedo_texture = ExtResource("1_disgl")
+texture_filter = 1

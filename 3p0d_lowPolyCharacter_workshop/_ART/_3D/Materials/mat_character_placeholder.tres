@@ -6,3 +6,4 @@
 resource_name = "mat_character_placeholder"
 shading_mode = 0
 albedo_texture = ExtResource("1_blk8j")
+texture_filter = 1

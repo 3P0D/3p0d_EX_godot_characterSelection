@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dadyi4qodsak4"]
+
+[node name="P_character_template" type="Node3D"]
+metadata/backgroundColor = Color(0, 0, 0, 1)
+metadata/textColor = Color(0, 0, 0, 1)
+metadata/headersColor = Color(0, 0, 0, 1)
+metadata/characterName = ""
+metadata/artistName = ""
+metadata/characterDescription = ""
