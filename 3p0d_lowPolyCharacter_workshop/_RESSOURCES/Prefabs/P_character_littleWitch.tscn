@@ -310,9 +310,9 @@ metadata/characterDescription = "Petite sorcière très colorée qui passe son t
 metadata/image01 = "res://_ART/_UI/Sprites/S_ui_magicWand.png"
 metadata/image02 = "res://_ART/_UI/Sprites/S_ui_pumpkin.png"
 metadata/img01title = "Baguette magique"
-metadata/img01text = "Connait quelques sorts bien pratiques."
+metadata/img01text = "Insérez un texte ici."
 metadata/img02title = "Citrouilles"
-metadata/img02text = "Premier prix 48 années d'affilées!"
+metadata/img02text = "Insérez un texte ici."
 metadata/source01 = "par Lorc"
 metadata/source02 = "par Delapouite"
 

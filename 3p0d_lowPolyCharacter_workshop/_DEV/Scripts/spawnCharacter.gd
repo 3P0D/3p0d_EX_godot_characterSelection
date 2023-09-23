@@ -116,12 +116,24 @@ func _on_button_arrow_left_pressed():
 
 func _on_button_quit_pressed():
 	get_tree().quit()
-	
+
+
 #---------------------------------SETTINGS SCRIPT---------------------------------:
+func _input(ev):
+	var _toggle : CheckBox = $"../_UI/Control_Settings/Panel_Settings/VBoxContainer/HBoxContainer/Panel_HideMenus/MgCont_HideMenus/HBox_HideMenus/Panel_HideMenus/CheckBox_HideMenus"
+	if _ctrlmenus.visible == false:
+		if Input.is_key_pressed(KEY_ESCAPE):
+			_ctrlmenus.set_visible(true)
+			m_settings.set_visible(false)
+			_toggle.set_pressed(true)
+
+	elif _ctrlmenus.visible == true:
+		if Input.is_key_pressed(KEY_ESCAPE):
+			_ctrlmenus.set_visible(true)
+			m_settings.set_visible(true)
 
 func _on_button_menu_pressed():
 	m_settings.set_visible(true)
-	print(_stgpanel.get("theme_override_styles/panel/bg_color"))
 
 func _on_button_quit_settings_pressed():
 	m_settings.set_visible(false)
@@ -131,7 +143,6 @@ func _on_check_box_fullscreen_toggle_toggled(button_pressed):
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-
 
 func _on_check_box_hide_menus_toggled(button_pressed):
 	_ctrlmenus.set_visible(false)

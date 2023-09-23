@@ -276,8 +276,8 @@ metadata/img01title = "Passionnée de JV"
 metadata/img01text = "Insérer un texte ici."
 metadata/img02title = "Game Artist"
 metadata/img02text = "Insérer un texte ici."
-metadata/source01 = "by Delapouite"
-metadata/source02 = "by Delapouite"
+metadata/source01 = "par Delapouite"
+metadata/source02 = "par Delapouite"
 
 [node name="3d_character_tvPod" type="Node3D" parent="."]
 transform = Transform3D(1.05, 0, 0, 0, 1.05, 0, 0, 0, 1.05, 0, 0, 0)

@@ -272,12 +272,14 @@ font_size = 12
 [node name="OmniLight3D" type="OmniLight3D" parent="--Environment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 shadow_enabled = true
+shadow_normal_bias = 0.1
 shadow_blur = 3.0
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="--Environment"]
 transform = Transform3D(0.999886, -0.0150965, 0, 0.0150965, 0.999886, 0, 0, 0, 1, 0, 0, -3)
 light_energy = 3.0
 shadow_enabled = true
+shadow_normal_bias = 0.1
 shadow_blur = 3.0
 omni_range = 3.0
 omni_attenuation = 2.63902
@@ -286,6 +288,7 @@ omni_attenuation = 2.63902
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 4, 0)
 light_volumetric_fog_energy = 2.631
 shadow_enabled = true
+shadow_normal_bias = 0.1
 shadow_blur = 3.0
 distance_fade_enabled = true
 spot_range = 10.0
