@@ -316,8 +316,8 @@ _data = {
 }
 
 [node name="P_character_template" type="Node3D"]
-metadata/backgroundColor = Color(0.145098, 0.203922, 0.666667, 1)
-metadata/textColor = Color(1, 1, 1, 1)
+metadata/backgroundColor = Color(0.222656, 0.558594, 0.664063, 1)
+metadata/textColor = Color(0.890196, 0, 0, 1)
 metadata/headersColor = Color(0.976471, 0.811765, 0, 1)
 metadata/characterName = "Astronaute"
 metadata/artistName = "Petit Prince"

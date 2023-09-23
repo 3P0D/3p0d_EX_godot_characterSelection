@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://c13gff5yjmbtu"]
+[gd_scene load_steps=27 format=3 uid="uid://c13gff5yjmbtu"]
 
 [ext_resource type="FontFile" uid="uid://tqn06fp72mux" path="res://_ART/_UI/Fonts/Bungee-Regular.ttf" id="1_1dhyi"]
 [ext_resource type="Script" path="res://_DEV/Scripts/spawnCharacter.gd" id="1_pmp4t"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://brxnpm4fssv4a" path="res://_ART/_3D/Textures/T_cylinderStage.png" id="4_ky4mq"]
 [ext_resource type="Texture2D" uid="uid://c4wj66j30pe24" path="res://_ART/_UI/Sprites/S_ui_bg_square.png" id="5_xf1sx"]
 [ext_resource type="PackedScene" uid="uid://b7j3kwcfuxt1t" path="res://_RESSOURCES/Prefabs/P_character_littleWitch.tscn" id="6_wcijl"]
+[ext_resource type="Texture2D" uid="uid://cifjg5a3v355h" path="res://_ART/_UI/Sprites/S_ui_vignette.png" id="7_0kr0y"]
+[ext_resource type="PackedScene" uid="uid://dvfbcfvoaf7p0" path="res://_RESSOURCES/Prefabs/P_character_tvpod.tscn" id="7_xrhi5"]
 [ext_resource type="Texture2D" uid="uid://hapunktubj8f" path="res://_ART/_UI/Sprites/S_ui_gaming300.png" id="10_paj11"]
 
 [sub_resource type="Environment" id="Environment_gy0qs"]
@@ -68,16 +70,26 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_kcrjr")
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_2vvfd"]
+blend_mode = 2
+light_mode = 1
+
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_wk8uw"]
 blend_mode = 2
 
 [sub_resource type="LabelSettings" id="LabelSettings_b1iva"]
 font = ExtResource("1_1dhyi")
 font_size = 40
+font_color = Color(1, 0.356863, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_6nekv"]
+font = ExtResource("2_wjmu8")
+font_size = 22
 
 [sub_resource type="LabelSettings" id="LabelSettings_4vmgu"]
 font = ExtResource("2_wjmu8")
 font_size = 30
+font_color = Color(1, 0.356863, 1, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_cnbh5"]
 
@@ -85,19 +97,27 @@ font_size = 30
 font = ExtResource("2_wjmu8")
 font_size = 30
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_ex5ql"]
+[sub_resource type="LabelSettings" id="LabelSettings_gcrq0"]
 
 [node name="Main_CharacterSelection" type="Node3D"]
 
 [node name="--Environment" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="--Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 shadow_enabled = true
 shadow_blur = 3.0
 
+[node name="OmniLight3D2" type="OmniLight3D" parent="--Environment"]
+transform = Transform3D(0.999886, -0.0150965, 0, 0.0150965, 0.999886, 0, 0, 0, 1, 0, 0, -3)
+light_energy = 3.0
+shadow_enabled = true
+shadow_blur = 3.0
+omni_range = 3.0
+omni_attenuation = 2.63902
+
 [node name="SpotLight3D" type="SpotLight3D" parent="--Environment"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 4, 0)
 light_volumetric_fog_energy = 2.631
 shadow_enabled = true
 shadow_blur = 3.0
@@ -133,13 +153,14 @@ transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0, 0, 0)
 mesh = SubResource("ArrayMesh_q6eba")
 skeleton = NodePath("")
 
-[node name="--CharacterHolder" type="Node3D" parent="." node_paths=PackedStringArray("m_characterName", "m_artistName", "m_characterDescription", "m_background", "m_spt01", "m_spt02", "m_spt01text", "m_spt01title", "m_spt02text", "m_spt02title", "m_cylinder")]
+[node name="--CharacterHolder" type="Node3D" parent="." node_paths=PackedStringArray("m_characterName", "m_artistName", "m_characterDescription", "m_madeby", "m_background", "m_spt01", "m_spt02", "m_spt01text", "m_spt01title", "m_spt02text", "m_spt02title", "m_cylinder")]
 script = ExtResource("1_pmp4t")
 m_rotSpd = 50
-m_characters = Array[PackedScene]([ExtResource("2_nap4n"), ExtResource("3_2ts3b"), ExtResource("6_wcijl")])
+m_characters = Array[PackedScene]([ExtResource("2_nap4n"), ExtResource("3_2ts3b"), ExtResource("6_wcijl"), ExtResource("7_xrhi5")])
 m_characterName = NodePath("../_UI/Control_Sprites/VBox_texts/Label_CharacterName")
-m_artistName = NodePath("../_UI/Control_Sprites/VBox_texts/Label_ArtistName")
+m_artistName = NodePath("../_UI/Control_Sprites/VBox_texts/HBox_MadeByArtistName/Label_ArtistName")
 m_characterDescription = NodePath("../_UI/Control_Sprites/VBox_texts/Label_Description")
+m_madeby = NodePath("../_UI/Control_Sprites/VBox_texts/HBox_MadeByArtistName/Label_MadeBy")
 m_background = NodePath("../--Environment/WorldEnvironment")
 m_spt01 = NodePath("../_UI/Control_Sprites/VBox_sprites/HBox_sprite1/TextureRect_sprite1")
 m_spt02 = NodePath("../_UI/Control_Sprites/VBox_sprites/HBox_sprite2/TextureRect_sprite2")
@@ -161,6 +182,20 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="TextureRect3" type="TextureRect" parent="_UI"]
+self_modulate = Color(0.0823529, 0.0823529, 0.0823529, 1)
+texture_filter = 2
+texture_repeat = 2
+material = SubResource("CanvasItemMaterial_2vvfd")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_0kr0y")
+expand_mode = 1
 
 [node name="Control_Sprites" type="Control" parent="_UI"]
 layout_mode = 1
@@ -234,10 +269,24 @@ layout_mode = 2
 text = "Character Name"
 label_settings = SubResource("LabelSettings_b1iva")
 
-[node name="Label_ArtistName" type="Label" parent="_UI/Control_Sprites/VBox_texts"]
+[node name="HBox_MadeByArtistName" type="HBoxContainer" parent="_UI/Control_Sprites/VBox_texts"]
 layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label_MadeBy" type="Label" parent="_UI/Control_Sprites/VBox_texts/HBox_MadeByArtistName"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Réalisé par :"
+label_settings = SubResource("LabelSettings_6nekv")
+vertical_alignment = 1
+uppercase = true
+
+[node name="Label_ArtistName" type="Label" parent="_UI/Control_Sprites/VBox_texts/HBox_MadeByArtistName"]
+layout_mode = 2
+size_flags_vertical = 1
 text = "Artist Name"
 label_settings = SubResource("LabelSettings_4vmgu")
+vertical_alignment = 1
 uppercase = true
 
 [node name="Label_Description" type="Label" parent="_UI/Control_Sprites/VBox_texts"]
@@ -297,6 +346,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 1
 text = "Description de la capacité/du trait 01."
+label_settings = SubResource("LabelSettings_gcrq0")
 vertical_alignment = 1
 autowrap_mode = 2
 
@@ -378,10 +428,6 @@ offset_bottom = 4.0
 grow_vertical = 2
 icon = ExtResource("2_hy4iq")
 flat = true
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-visible = false
-mesh = SubResource("CapsuleMesh_ex5ql")
 
 [connection signal="pressed" from="_UI/Ctrl_Arrows/Button_arrowRight" to="--CharacterHolder" method="_on_button_arrow_right_pressed"]
 [connection signal="pressed" from="_UI/Ctrl_Arrows/Button_arrowLeft" to="--CharacterHolder" method="_on_button_arrow_left_pressed"]
