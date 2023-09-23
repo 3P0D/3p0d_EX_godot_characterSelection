@@ -16,18 +16,17 @@ extends Node3D
 @onready var _btnMenu : Button = $"../_UI/Control_Menus/MarginContainer_Menu/Button_Menu"
 @onready var _btnQuit : Button = $"../_UI/Control_Menus/MarginContainer_Quit/Button_Quit"
 @onready var _stgpanel : Panel = $"../_UI/Control_Settings/Panel_Settings"
+@onready var _ctrlmenus : Control = $"../_UI/Control_Menus"
 
 #PUBLIC VARIABLES:
 @export var m_rotSpd = 3
 @export var m_characters:Array[PackedScene]
-
 @export var m_cylinder : MeshInstance3D
 @export var m_background : WorldEnvironment
-
 @export var m_settings : Control
 
 #PRIVATE VARIABLES:
-var current = 0
+var current : float = 0
 
 #---------------------------------GAMEPLAY SCRIPT---------------------------------:
 func _ready():
@@ -36,7 +35,7 @@ func _ready():
 	_updateInfos()
 
 func _process(delta):
-	rotate(Vector3(0, -m_rotSpd, 0).normalized(), delta)
+	rotate(Vector3(0, 1, 0).normalized(), delta * m_rotSpd)
 
 func _updateCharModel(val):
 	#---sets the min and max of the loop, and increment of the loop at each click.
@@ -69,14 +68,15 @@ func _updateInfos():
 	#set the colours.
 	_characterName.label_settings.font_color = get_child(1).get_meta('headersColor')
 	_artistName.label_settings.font_color = get_child(1).get_meta('headersColor')
-	m_background.environment.set_bg_color(get_child(1).get_meta('backgroundColor'))
-	m_cylinder.mesh.surface_get_material(0).albedo_color = get_child(1).get_meta('backgroundColor')
 	_spt01title.label_settings.font_color = get_child(1).get_meta('headersColor')
-	
-	_stgpanel.set("theme_override_styles/bg_color", get_child(1).get_meta('backgroundColor'))
 	
 	_btnArrowR.set("theme_override_colors/icon_hover_color", get_child(1).get_meta('headersColor'))
 	_btnArrowL.set("theme_override_colors/icon_hover_color", get_child(1).get_meta('headersColor'))
+	
+	m_background.environment.set_bg_color(get_child(1).get_meta('backgroundColor'))
+	m_cylinder.mesh.surface_get_material(0).albedo_color = get_child(1).get_meta('backgroundColor')
+	
+	_stgpanel.set("theme_override_styles/panel/bg_color", get_child(1).get_meta('headersColor'))
 	
 	#set the sprites images.
 	_spt01.set_texture(load(str(get_child(1).get_meta('image01'))))
@@ -103,6 +103,15 @@ func _on_button_quit_pressed():
 
 func _on_button_menu_pressed():
 	m_settings.set_visible(true)
+	print(_stgpanel.get("theme_override_styles/panel/bg_color"))
 
 func _on_button_quit_settings_pressed():
 	m_settings.set_visible(false)
+
+func _on_check_box_hide_menus_toggled(button_pressed):
+	_ctrlmenus.set_visible(false)
+	if button_pressed:
+		_ctrlmenus.set_visible(true)
+
+func _on_h_slider_rotation_spd_value_changed(value):
+	m_rotSpd = value

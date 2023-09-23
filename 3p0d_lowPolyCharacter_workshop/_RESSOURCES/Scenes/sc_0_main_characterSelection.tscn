@@ -256,7 +256,7 @@ skeleton = NodePath("")
 
 [node name="--CharacterHolder" type="Node3D" parent="." node_paths=PackedStringArray("m_cylinder", "m_background", "m_settings")]
 script = ExtResource("1_pmp4t")
-m_rotSpd = 50
+m_rotSpd = 1
 m_characters = Array[PackedScene]([ExtResource("2_nap4n"), ExtResource("3_2ts3b"), ExtResource("6_wcijl"), ExtResource("7_xrhi5")])
 m_cylinder = NodePath("../--Background/3d_cylinderStage/3d_cylinderStage2")
 m_background = NodePath("../--Environment/WorldEnvironment")
@@ -573,7 +573,7 @@ theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
 [node name="Button_Menu" type="Button" parent="_UI/Control_Menus/MarginContainer_Menu"]
-self_modulate = Color(1, 1, 1, 0.0588235)
+self_modulate = Color(1, 1, 1, 0.117647)
 material = SubResource("CanvasItemMaterial_5ma4l")
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_tfrlr")
@@ -599,7 +599,7 @@ theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
 [node name="Button_Quit" type="Button" parent="_UI/Control_Menus/MarginContainer_Quit"]
-self_modulate = Color(1, 1, 1, 0.0588235)
+self_modulate = Color(1, 1, 1, 0.117647)
 material = SubResource("CanvasItemMaterial_5ma4l")
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_tfrlr")
@@ -646,7 +646,7 @@ grow_vertical = 2
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="Label_Fullscreen" type="Label" parent="_UI/Control_Settings/Panel_Settings/VBoxContainer"]
+[node name="Label_Settings" type="Label" parent="_UI/Control_Settings/Panel_Settings/VBoxContainer"]
 custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
 text = "SETTINGS:"
@@ -734,7 +734,7 @@ theme_override_constants/separation = 20
 
 [node name="Label_HideMenus" type="Label" parent="_UI/Control_Settings/Panel_Settings/VBoxContainer/Panel_HideMenus/MgCont_HideMenus/HBox_HideMenus"]
 layout_mode = 2
-text = "Fullscreen mode:"
+text = "Show top menus:"
 label_settings = SubResource("LabelSettings_c7w83")
 vertical_alignment = 1
 
@@ -763,6 +763,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_n7053")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_tgy1d")
 theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_grcru")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_de8lm")
+button_pressed = true
 flat = true
 icon_alignment = 1
 
@@ -805,6 +806,10 @@ theme_override_icons/tick = ExtResource("17_ohw2w")
 theme_override_styles/slider = SubResource("StyleBoxLine_b62gj")
 theme_override_styles/grabber_area = SubResource("StyleBoxLine_rtmno")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_518d8")
+min_value = 0.1
+max_value = 5.0
+step = 0.1
+value = 1.1
 
 [node name="Panel_Gamma" type="Panel" parent="_UI/Control_Settings/Panel_Settings/VBoxContainer"]
 material = SubResource("CanvasItemMaterial_34383")
@@ -867,4 +872,6 @@ expand_icon = true
 [connection signal="pressed" from="_UI/Control_Arrows/Button_arrowLeft" to="--CharacterHolder" method="_on_button_arrow_left_pressed"]
 [connection signal="pressed" from="_UI/Control_Menus/MarginContainer_Menu/Button_Menu" to="--CharacterHolder" method="_on_button_menu_pressed"]
 [connection signal="pressed" from="_UI/Control_Menus/MarginContainer_Quit/Button_Quit" to="--CharacterHolder" method="_on_button_quit_pressed"]
+[connection signal="toggled" from="_UI/Control_Settings/Panel_Settings/VBoxContainer/Panel_HideMenus/MgCont_HideMenus/HBox_HideMenus/Panel_HideMenus/CheckBox_HideMenus" to="--CharacterHolder" method="_on_check_box_hide_menus_toggled"]
+[connection signal="value_changed" from="_UI/Control_Settings/Panel_Settings/VBoxContainer/Panel_RotationSpd/MgCont_RotationSpd/HBox_RotationSpd/HSlider_RotationSpd" to="--CharacterHolder" method="_on_h_slider_rotation_spd_value_changed"]
 [connection signal="pressed" from="_UI/Control_Settings/Panel_Settings/Button_QuitSettings" to="--CharacterHolder" method="_on_button_quit_settings_pressed"]
