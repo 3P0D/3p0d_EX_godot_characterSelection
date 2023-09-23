@@ -22,6 +22,7 @@ extends Node3D
 @onready var _sldCont : HSlider = $"../_UI/Control_Settings/Panel_Settings/VBoxContainer/Panel_Contrast/MgCont_Contrast/HBox_Contrast/HSlider_Contrast"
 @onready var _sldSpd : HSlider = $"../_UI/Control_Settings/Panel_Settings/VBoxContainer/Panel_RotationSpd/MgCont_RotationSpd/HBox_RotationSpd/HSlider_RotationSpd"
 @onready var _iconsBy : Label = $"../_UI/Control_Settings/Panel_Settings/VBoxContainer/Panel_CurrentCredit/MgCont_Contrast/HBox_Contrast/Label_Credits"
+@onready var _toggle : CheckBox = $"../_UI/Control_Settings/Panel_Settings/VBoxContainer/HBoxContainer/Panel_HideMenus/MgCont_HideMenus/HBox_HideMenus/Panel_HideMenus/CheckBox_HideMenus"
 
 #PUBLIC VARIABLES:
 @export var m_rotSpd = 0.5
@@ -120,17 +121,20 @@ func _on_button_quit_pressed():
 
 #---------------------------------SETTINGS SCRIPT---------------------------------:
 func _input(ev):
-	var _toggle : CheckBox = $"../_UI/Control_Settings/Panel_Settings/VBoxContainer/HBoxContainer/Panel_HideMenus/MgCont_HideMenus/HBox_HideMenus/Panel_HideMenus/CheckBox_HideMenus"
-	if _ctrlmenus.visible == false:
-		if Input.is_key_pressed(KEY_ESCAPE):
+	if Input.is_action_pressed("right"):
+		_updateCharModel(1)
+	
+	if Input.is_action_pressed("left"):
+		_updateCharModel(-1)
+	
+	if Input.is_key_pressed(KEY_ESCAPE):
+		if _ctrlmenus.visible == false and m_settings.visible == false:
 			_ctrlmenus.set_visible(true)
-			m_settings.set_visible(false)
 			_toggle.set_pressed(true)
-
-	elif _ctrlmenus.visible == true:
-		if Input.is_key_pressed(KEY_ESCAPE):
-			_ctrlmenus.set_visible(true)
+		elif _ctrlmenus.visible == true and m_settings.visible == false:
 			m_settings.set_visible(true)
+		elif m_settings.visible == true:
+			m_settings.set_visible(false)
 
 func _on_button_menu_pressed():
 	m_settings.set_visible(true)
