@@ -328,6 +328,8 @@ metadata/img01title = "Hypervitesse"
 metadata/img01text = "Il ne tient pas en place."
 metadata/img02title = "Fan de l'espace!"
 metadata/img02text = "Timothy veut aller toucher les étoiles."
+metadata/source01 = "par Lorc"
+metadata/source02 = "par Delapouite"
 
 [node name="3d_character_astronaut" type="Node3D" parent="."]
 

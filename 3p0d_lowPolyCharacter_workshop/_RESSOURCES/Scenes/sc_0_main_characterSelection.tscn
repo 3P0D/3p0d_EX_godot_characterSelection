@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://c13gff5yjmbtu"]
+[gd_scene load_steps=70 format=3 uid="uid://c13gff5yjmbtu"]
 
 [ext_resource type="FontFile" uid="uid://tqn06fp72mux" path="res://_ART/_UI/Fonts/Bungee-Regular.ttf" id="1_1dhyi"]
 [ext_resource type="Script" path="res://_DEV/Scripts/spawnCharacter.gd" id="1_pmp4t"]
@@ -33,9 +33,8 @@ sdfgi_bounce_feedback = 0.0
 sdfgi_cascades = 1
 sdfgi_max_distance = 25.6
 adjustment_enabled = true
-adjustment_brightness = 1.1
-adjustment_contrast = 1.1
-adjustment_saturation = 1.1
+adjustment_brightness = 1.2
+adjustment_saturation = 1.2
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_ayemf"]
 _surfaces = [{
@@ -191,6 +190,32 @@ expand_margin_top = 15.0
 expand_margin_right = 15.0
 expand_margin_bottom = 15.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f8w2j"]
+bg_color = Color(0.862745, 0.862745, 0.862745, 0.117647)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+expand_margin_left = 15.0
+expand_margin_top = 15.0
+expand_margin_right = 15.0
+expand_margin_bottom = 15.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7jcel"]
+bg_color = Color(0.862745, 0.862745, 0.862745, 0.0588235)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+expand_margin_left = 15.0
+expand_margin_top = 15.0
+expand_margin_right = 15.0
+expand_margin_bottom = 15.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4lnqi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v6yv6"]
+
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_b62gj"]
 color = Color(1, 1, 1, 0.0588235)
 thickness = 10
@@ -203,6 +228,26 @@ thickness = 10
 color = Color(1, 1, 1, 0.784314)
 thickness = 10
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5wcjg"]
+bg_color = Color(0.862745, 0.862745, 0.862745, 0.0196078)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="LabelSettings" id="LabelSettings_mtm63"]
+font = ExtResource("2_wjmu8")
+font_size = 18
+
+[sub_resource type="LabelSettings" id="LabelSettings_c0rwb"]
+font_size = 13
+
+[sub_resource type="LabelSettings" id="LabelSettings_ohtcx"]
+font_size = 12
+font_color = Color(1, 1, 1, 0.392157)
+shadow_color = Color(0, 0, 0, 0.0784314)
+shadow_offset = Vector2(2, 2)
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f50po"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gdriy"]
@@ -212,6 +257,13 @@ thickness = 10
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ymik3"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pndop"]
+
+[sub_resource type="FontVariation" id="FontVariation_e4nqg"]
+spacing_glyph = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_denin"]
+font = SubResource("FontVariation_e4nqg")
+font_size = 12
 
 [node name="Main_CharacterSelection" type="Node3D"]
 
@@ -625,7 +677,7 @@ expand_icon = true
 
 [node name="Control_Settings" type="Control" parent="_UI"]
 z_index = 50
-custom_minimum_size = Vector2(850, 600)
+custom_minimum_size = Vector2(850, 680)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -633,9 +685,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -425.0
-offset_top = -300.0
+offset_top = -350.0
 offset_right = 425.0
-offset_bottom = 300.0
+offset_bottom = 330.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -659,7 +711,7 @@ theme_override_constants/separation = 20
 alignment = 1
 
 [node name="Label_Settings" type="Label" parent="_UI/Control_Settings/Panel_Settings/VBoxContainer"]
-custom_minimum_size = Vector2(0, 120)
+custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 text = "SETTINGS:"
 label_settings = SubResource("LabelSettings_si4oh")
@@ -798,6 +850,10 @@ material = SubResource("CanvasItemMaterial_7mtpm")
 layout_mode = 2
 theme = SubResource("Theme_kmioy")
 theme_override_styles/normal = SubResource("StyleBoxFlat_6c0vw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_f8w2j")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7jcel")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_4lnqi")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_v6yv6")
 text = "Reset Defaults"
 
 [node name="Panel_RotationSpd" type="Panel" parent="_UI/Control_Settings/Panel_Settings/VBoxContainer"]
@@ -868,7 +924,7 @@ theme_override_constants/separation = 20
 
 [node name="Label_Saturation" type="Label" parent="_UI/Control_Settings/Panel_Settings/VBoxContainer/Panel_Saturation/MgCont_Saturation/HBox_Saturation"]
 layout_mode = 2
-text = "Saturation:"
+text = "3D Saturation:"
 label_settings = SubResource("LabelSettings_c7w83")
 vertical_alignment = 1
 
@@ -911,7 +967,7 @@ theme_override_constants/separation = 20
 
 [node name="Label_Brightness" type="Label" parent="_UI/Control_Settings/Panel_Settings/VBoxContainer/Panel_Brightness/MgCont_Brightness/HBox_Brightness"]
 layout_mode = 2
-text = "Brightness:"
+text = "3D Brightness:"
 label_settings = SubResource("LabelSettings_c7w83")
 vertical_alignment = 1
 
@@ -954,7 +1010,7 @@ theme_override_constants/separation = 20
 
 [node name="Label_Contrast" type="Label" parent="_UI/Control_Settings/Panel_Settings/VBoxContainer/Panel_Contrast/MgCont_Contrast/HBox_Contrast"]
 layout_mode = 2
-text = "Contrast:"
+text = "3D Contrast:"
 label_settings = SubResource("LabelSettings_c7w83")
 vertical_alignment = 1
 
@@ -973,14 +1029,60 @@ max_value = 2.0
 step = 0.1
 value = 1.0
 
+[node name="Panel_CurrentCredit" type="Panel" parent="_UI/Control_Settings/Panel_Settings/VBoxContainer"]
+material = SubResource("CanvasItemMaterial_34383")
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5wcjg")
+
+[node name="MgCont_Contrast" type="MarginContainer" parent="_UI/Control_Settings/Panel_Settings/VBoxContainer/Panel_CurrentCredit"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBox_Contrast" type="HBoxContainer" parent="_UI/Control_Settings/Panel_Settings/VBoxContainer/Panel_CurrentCredit/MgCont_Contrast"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label_CreditsTitle" type="Label" parent="_UI/Control_Settings/Panel_Settings/VBoxContainer/Panel_CurrentCredit/MgCont_Contrast/HBox_Contrast"]
+layout_mode = 2
+text = "Images credits (loaded):"
+label_settings = SubResource("LabelSettings_mtm63")
+horizontal_alignment = 3
+vertical_alignment = 1
+
+[node name="Label_Credits" type="Label" parent="_UI/Control_Settings/Panel_Settings/VBoxContainer/Panel_CurrentCredit/MgCont_Contrast/HBox_Contrast"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "3D Contrast:"
+label_settings = SubResource("LabelSettings_c0rwb")
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Label_CreditsMine" type="Label" parent="_UI/Control_Settings/Panel_Settings/VBoxContainer"]
+layout_mode = 2
+text = "Application développée par 3P0D/Maude L'Hoir dans un cadre éducatif. 
+Merci de ne pas réutiliser ou repartager sans autorisation préalable."
+label_settings = SubResource("LabelSettings_ohtcx")
+horizontal_alignment = 1
+uppercase = true
+
 [node name="Button_QuitSettings" type="Button" parent="_UI/Control_Settings/Panel_Settings"]
 modulate = Color(1, 1, 1, 0.196078)
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 1
-offset_left = 20.0
-offset_top = 20.0
-offset_right = 50.0
-offset_bottom = 50.0
+offset_left = 15.0
+offset_top = 15.0
+offset_right = 45.0
+offset_bottom = 45.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_f50po")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_gdriy")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_4c06r")
@@ -989,6 +1091,34 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_pndop")
 icon = ExtResource("15_7srd7")
 flat = true
 expand_icon = true
+
+[node name="Control" type="Control" parent="_UI"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="_UI/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+
+[node name="Label_iconsByHolder" type="Label" parent="_UI/Control/MarginContainer"]
+modulate = Color(0, 0, 0, 0.196078)
+layout_mode = 2
+size_flags_vertical = 1
+text = "Icons by: "
+label_settings = SubResource("LabelSettings_denin")
+vertical_alignment = 1
+uppercase = true
 
 [connection signal="pressed" from="_UI/Control_Arrows/Button_arrowRight" to="--CharacterHolder" method="_on_button_arrow_right_pressed"]
 [connection signal="pressed" from="_UI/Control_Arrows/Button_arrowLeft" to="--CharacterHolder" method="_on_button_arrow_left_pressed"]

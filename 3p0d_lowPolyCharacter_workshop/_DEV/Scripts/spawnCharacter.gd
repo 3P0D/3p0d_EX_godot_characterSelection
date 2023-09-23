@@ -21,6 +21,7 @@ extends Node3D
 @onready var _sldBrght : HSlider = $"../_UI/Control_Settings/Panel_Settings/VBoxContainer/Panel_Brightness/MgCont_Brightness/HBox_Brightness/HSlider_Brightness"
 @onready var _sldCont : HSlider = $"../_UI/Control_Settings/Panel_Settings/VBoxContainer/Panel_Contrast/MgCont_Contrast/HBox_Contrast/HSlider_Contrast"
 @onready var _sldSpd : HSlider = $"../_UI/Control_Settings/Panel_Settings/VBoxContainer/Panel_RotationSpd/MgCont_RotationSpd/HBox_RotationSpd/HSlider_RotationSpd"
+@onready var _iconsBy : Label = $"../_UI/Control_Settings/Panel_Settings/VBoxContainer/Panel_CurrentCredit/MgCont_Contrast/HBox_Contrast/Label_Credits"
 
 #PUBLIC VARIABLES:
 @export var m_rotSpd = 0.5
@@ -34,11 +35,11 @@ var current : float = 0
 
 #---------------------------------GAMEPLAY SCRIPT---------------------------------:
 func _ready():
-	_setDefaultEnv()
 	m_settings.set_visible(false)
 	add_child(m_characters[current].instantiate())
 	_updateCharModel(current)
 	_updateInfos()
+	_setDefaultEnv()
 
 func _process(delta):
 	rotate(Vector3(0, -1, 0).normalized(), delta * m_rotSpd)
@@ -94,16 +95,18 @@ func _updateInfos():
 	_spt02title.text = str(get_child(1).get_meta('img02title'))
 	_spt02text.text = str(get_child(1).get_meta('img02text'))
 	
+	_iconsBy.text = str("Image 01 " + get_child(1).get_meta('source01') + " / Image 02 " + get_child(1).get_meta('source02') + " - CC BY 3.0 - www.game-icons.net")
+	
 	print("updated!")
 	
 	
 func _setDefaultEnv():
-	m_background.environment.set_adjustment_contrast(1.2)
+	m_background.environment.set_adjustment_contrast(1)
+	_sldCont.value = 1
+	m_background.environment.set_adjustment_brightness(1.2)
+	_sldBrght.value = 1.2
+	m_background.environment.set_adjustment_saturation(1.2)
 	_sldSat.value = 1.2
-	m_background.environment.set_adjustment_brightness(1.1)
-	_sldBrght.value = 1.1
-	m_background.environment.set_adjustment_saturation(1.1)
-	_sldCont.value = 1.1
 
 func _on_button_arrow_right_pressed():
 	_updateCharModel(1)

@@ -313,6 +313,8 @@ metadata/img01title = "Baguette magique"
 metadata/img01text = "Connait quelques sorts bien pratiques."
 metadata/img02title = "Championne des citrouilles"
 metadata/img02text = "Premier prix 48 années d'affilées!"
+metadata/source01 = "machin"
+metadata/source02 = "machin"
 
 [node name="3d_character_littleWitch" type="Node3D" parent="."]
 

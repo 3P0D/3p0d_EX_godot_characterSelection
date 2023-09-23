@@ -269,13 +269,15 @@ metadata/textColor = Color(0.388235, 0.388235, 0.388235, 1)
 metadata/headersColor = Color(1, 0.835294, 0, 1)
 metadata/characterName = "TVPOD"
 metadata/artistName = "3p0d"
-metadata/characterDescription = "she likes games and 3D. and sometimes embroidery."
+metadata/characterDescription = ""
 metadata/image01 = "res://_ART/_UI/Sprites/S_ui_gamepad.png"
 metadata/image02 = "res://_ART/_UI/Sprites/S_ui_goose.png"
-metadata/img01title = "Jeux vidéos all day!"
-metadata/img01text = "Pourrait y passer des heures, mais surtout, en produit."
+metadata/img01title = "Game Dev'"
+metadata/img01text = "Passe ses journées à designer des jeux."
 metadata/img02title = "Adore les oies"
 metadata/img02text = "Ils sont vilains mais tellement choupis."
+metadata/source01 = "by Delapouite"
+metadata/source02 = "by Delapouite"
 
 [node name="3d_character_tvPod" type="Node3D" parent="."]
 transform = Transform3D(1.05, 0, 0, 0, 1.05, 0, 0, 0, 1.05, 0, 0, 0)

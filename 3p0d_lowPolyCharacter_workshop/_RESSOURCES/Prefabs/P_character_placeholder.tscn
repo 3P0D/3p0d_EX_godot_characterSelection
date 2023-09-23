@@ -133,6 +133,8 @@ metadata/img01title = "Espace 3D"
 metadata/img01text = "Il reste dans son univers XYZ."
 metadata/img02title = "Passe-partout"
 metadata/img02text = "Indispensable dans toute production."
+metadata/source01 = "par Delapouite"
+metadata/source02 = "par Delapouite"
 
 [node name="3d_character_placeholder" type="Node3D" parent="."]
 
