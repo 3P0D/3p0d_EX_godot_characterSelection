@@ -34,6 +34,7 @@ var current : float = 0
 
 #---------------------------------GAMEPLAY SCRIPT---------------------------------:
 func _ready():
+	_setDefaultEnv()
 	m_settings.set_visible(false)
 	add_child(m_characters[current].instantiate())
 	_updateCharModel(current)
@@ -94,6 +95,15 @@ func _updateInfos():
 	_spt02text.text = str(get_child(1).get_meta('img02text'))
 	
 	print("updated!")
+	
+	
+func _setDefaultEnv():
+	m_background.environment.set_adjustment_contrast(1.2)
+	_sldSat.value = 1.2
+	m_background.environment.set_adjustment_brightness(1.1)
+	_sldBrght.value = 1.1
+	m_background.environment.set_adjustment_saturation(1.1)
+	_sldCont.value = 1.1
 
 func _on_button_arrow_right_pressed():
 	_updateCharModel(1)
@@ -138,12 +148,6 @@ func _on_h_slider_contrast_value_changed(value):
 	m_background.environment.set_adjustment_contrast(value)
 
 func _on_button_reset_default_pressed():
-	m_background.environment.set_adjustment_contrast(1)
-	_sldSat.value = 1.1
-	m_background.environment.set_adjustment_brightness(1)
-	_sldBrght.value = 1.1
-	m_background.environment.set_adjustment_saturation(1)
-	_sldCont.value = 1.1
-	m_rotSpd = 0.5
+	_setDefaultEnv()
 	_sldSpd.value = m_rotSpd
 	_ctrlmenus.set_visible(true)

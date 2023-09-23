@@ -278,6 +278,7 @@ metadata/img02title = "Adore les oies"
 metadata/img02text = "Ils sont vilains mais tellement choupis."
 
 [node name="3d_character_tvPod" type="Node3D" parent="."]
+transform = Transform3D(1.05, 0, 0, 0, 1.05, 0, 0, 0, 1.05, 0, 0, 0)
 
 [node name="rig_character_tvPod" type="Node3D" parent="3d_character_tvPod"]
 

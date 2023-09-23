@@ -4,7 +4,6 @@
 
 [resource]
 resource_name = "mat_cylinderStage"
-shading_mode = 0
 albedo_color = Color(0.823529, 0.317647, 0.929412, 1)
 albedo_texture = ExtResource("1_h8xhu")
 texture_filter = 1
