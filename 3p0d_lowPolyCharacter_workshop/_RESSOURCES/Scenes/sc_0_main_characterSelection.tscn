@@ -1,9 +1,10 @@
-[gd_scene load_steps=70 format=3 uid="uid://c13gff5yjmbtu"]
+[gd_scene load_steps=71 format=3 uid="uid://c13gff5yjmbtu"]
 
 [ext_resource type="FontFile" uid="uid://tqn06fp72mux" path="res://_ART/_UI/Fonts/Bungee-Regular.ttf" id="1_1dhyi"]
 [ext_resource type="Script" path="res://_DEV/Scripts/spawnCharacter.gd" id="1_pmp4t"]
 [ext_resource type="PackedScene" uid="uid://d6al8mk3mthk" path="res://_RESSOURCES/Prefabs/P_character_placeholder.tscn" id="2_nap4n"]
 [ext_resource type="Material" uid="uid://dam2j7bu5fx4h" path="res://_ART/_3D/Materials/mat_cylinderStage.tres" id="2_pn24r"]
+[ext_resource type="Texture2D" uid="uid://cdbvn7dt2vs64" path="res://_ART/_UI/Sprites/3P0D_Logo.png" id="2_wf7pw"]
 [ext_resource type="FontFile" uid="uid://b5xhpgjw4jjmk" path="res://_ART/_UI/Fonts/LilitaOne-Regular.ttf" id="2_wjmu8"]
 [ext_resource type="PackedScene" uid="uid://k4m5bi1o7pit" path="res://_RESSOURCES/Prefabs/P_character_astronaute.tscn" id="3_2ts3b"]
 [ext_resource type="Texture2D" uid="uid://dkol5omvnl8o5" path="res://_ART/_UI/Sprites/S_ui_character.png" id="3_v5mr5"]
@@ -307,12 +308,23 @@ environment = SubResource("Environment_gy0qs")
 
 [node name="Sprite3D" type="Sprite3D" parent="--Background"]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 1, -3)
+visible = false
 modulate = Color(1, 1, 1, 0.0196078)
 double_sided = false
 alpha_scissor_threshold = 0.185
 alpha_antialiasing_mode = 1
 texture_filter = 1
 texture = ExtResource("10_paj11")
+region_rect = Rect2(500, 0, 0, 0)
+
+[node name="Sprite3D2" type="Sprite3D" parent="--Background"]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, -3)
+modulate = Color(1, 1, 1, 0.00784314)
+double_sided = false
+alpha_scissor_threshold = 0.185
+alpha_antialiasing_mode = 1
+texture_filter = 1
+texture = ExtResource("2_wf7pw")
 region_rect = Rect2(500, 0, 0, 0)
 
 [node name="3d_cylinderStage" type="Node3D" parent="--Background"]

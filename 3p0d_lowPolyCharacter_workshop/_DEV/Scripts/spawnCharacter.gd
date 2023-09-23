@@ -127,7 +127,7 @@ func _input(ev):
 	if Input.is_action_pressed("left"):
 		_updateCharModel(-1)
 	
-	if Input.is_key_pressed(KEY_ESCAPE):
+	if Input.is_action_just_pressed("esc"):
 		if _ctrlmenus.visible == false and m_settings.visible == false:
 			_ctrlmenus.set_visible(true)
 			_toggle.set_pressed(true)
@@ -167,5 +167,5 @@ func _on_h_slider_contrast_value_changed(value):
 
 func _on_button_reset_default_pressed():
 	_setDefaultEnv()
-	_sldSpd.value = m_rotSpd
+	_sldSpd.value = 0.5
 	_ctrlmenus.set_visible(true)
