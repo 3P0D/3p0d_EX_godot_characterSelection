@@ -81,6 +81,8 @@ blend_mode = 2
 font = ExtResource("1_1dhyi")
 font_size = 40
 font_color = Color(1, 0.356863, 1, 1)
+shadow_color = Color(0, 0, 0, 0.196078)
+shadow_offset = Vector2(2, 2)
 
 [sub_resource type="LabelSettings" id="LabelSettings_6nekv"]
 font = ExtResource("2_wjmu8")
@@ -90,12 +92,16 @@ font_size = 22
 font = ExtResource("2_wjmu8")
 font_size = 30
 font_color = Color(1, 0.356863, 1, 1)
+shadow_color = Color(0, 0, 0, 0.196078)
+shadow_offset = Vector2(2, 2)
 
 [sub_resource type="LabelSettings" id="LabelSettings_cnbh5"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_60ufk"]
 font = ExtResource("2_wjmu8")
 font_size = 30
+shadow_color = Color(0, 0, 0, 0.196078)
+shadow_offset = Vector2(2, 2)
 
 [sub_resource type="LabelSettings" id="LabelSettings_gcrq0"]
 

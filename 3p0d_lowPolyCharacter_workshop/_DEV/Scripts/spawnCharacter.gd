@@ -24,6 +24,8 @@ var current = 0
 #SCRIPT:
 func _ready():
 	add_child(m_characters[current].instantiate())
+	_updateCharModel(current)
+	_updateInfos()
 
 func _process(delta):
 	rotate(Vector3(0, -m_rotSpd, 0).normalized(), delta)
@@ -72,6 +74,8 @@ func _updateInfos():
 	m_spt01text.text = str(get_child(1).get_meta('img01text'))
 	m_spt02title.text = str(get_child(1).get_meta('img02title'))
 	m_spt02text.text = str(get_child(1).get_meta('img02text'))
+	
+	print("updated!")
 
 
 func _on_button_arrow_right_pressed():
