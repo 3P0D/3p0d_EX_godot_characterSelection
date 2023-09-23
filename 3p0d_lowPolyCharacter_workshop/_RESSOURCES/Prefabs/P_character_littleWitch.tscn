@@ -304,19 +304,20 @@ _data = {
 metadata/backgroundColor = Color(0.470588, 0.156863, 0.678431, 1)
 metadata/textColor = Color(0.494118, 0.870588, 0, 1)
 metadata/headersColor = Color(0.666667, 1, 0, 1)
-metadata/characterName = "Petite Sorcière"
+metadata/characterName = "La Petite Sorcière"
 metadata/artistName = "Camomille"
 metadata/characterDescription = "Petite sorcière très colorée qui passe son temps à collectionner des chats égarés et leur tricoter des chaussettes."
 metadata/image01 = "res://_ART/_UI/Sprites/S_ui_magicWand.png"
 metadata/image02 = "res://_ART/_UI/Sprites/S_ui_pumpkin.png"
 metadata/img01title = "Baguette magique"
 metadata/img01text = "Connait quelques sorts bien pratiques."
-metadata/img02title = "Championne des citrouilles"
+metadata/img02title = "Citrouilles"
 metadata/img02text = "Premier prix 48 années d'affilées!"
-metadata/source01 = "machin"
-metadata/source02 = "machin"
+metadata/source01 = "par Lorc"
+metadata/source02 = "par Delapouite"
 
 [node name="3d_character_littleWitch" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0554862, 0)
 
 [node name="rig_character_littleWitch" type="Node3D" parent="3d_character_littleWitch"]
 

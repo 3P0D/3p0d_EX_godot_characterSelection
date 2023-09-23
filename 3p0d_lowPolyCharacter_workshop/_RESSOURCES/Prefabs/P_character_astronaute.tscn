@@ -316,10 +316,10 @@ _data = {
 }
 
 [node name="P_character_template" type="Node3D"]
-metadata/backgroundColor = Color(0.222656, 0.558594, 0.664063, 1)
+metadata/backgroundColor = Color(0.180392, 0.482353, 0.572549, 1)
 metadata/textColor = Color(0.890196, 0, 0, 1)
 metadata/headersColor = Color(0.976471, 0.811765, 0, 1)
-metadata/characterName = "Astronaute"
+metadata/characterName = "Timothy l'astronaute"
 metadata/artistName = "Petit Prince"
 metadata/characterDescription = "Ceci est un astronaute."
 metadata/image01 = "res://_ART/_UI/Sprites/S_ui_rocket.png"

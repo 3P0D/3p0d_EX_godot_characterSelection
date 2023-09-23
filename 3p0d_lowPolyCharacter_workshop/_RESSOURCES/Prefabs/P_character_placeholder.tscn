@@ -126,13 +126,13 @@ metadata/textColor = Color(0.333333, 0.333333, 0.333333, 1)
 metadata/headersColor = Color(0.615686, 0.615686, 0.615686, 1)
 metadata/characterName = "Placeholder"
 metadata/artistName = "Template"
-metadata/characterDescription = "This is a placeholder."
+metadata/characterDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eget vehicula diam, sed bibendum arcu. Aenean dignissim auctor lacus."
 metadata/image01 = "res://_ART/_UI/Sprites/S_ui_cube.png"
 metadata/image02 = "res://_ART/_UI/Sprites/S_ui_character.png"
 metadata/img01title = "Espace 3D"
-metadata/img01text = "Il reste dans son univers XYZ."
+metadata/img01text = "Insérer un texte ici."
 metadata/img02title = "Passe-partout"
-metadata/img02text = "Indispensable dans toute production."
+metadata/img02text = "Insérer un texte ici."
 metadata/source01 = "par Delapouite"
 metadata/source02 = "par Delapouite"
 

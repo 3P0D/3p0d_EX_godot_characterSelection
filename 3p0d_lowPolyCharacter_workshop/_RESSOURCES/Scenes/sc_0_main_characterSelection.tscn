@@ -304,7 +304,7 @@ environment = SubResource("Environment_gy0qs")
 
 [node name="Sprite3D" type="Sprite3D" parent="--Background"]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 1, -3)
-modulate = Color(1, 1, 1, 0.00784314)
+modulate = Color(1, 1, 1, 0.0196078)
 double_sided = false
 alpha_scissor_threshold = 0.185
 alpha_antialiasing_mode = 1
