@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://c13gff5yjmbtu"]
+[gd_scene load_steps=53 format=3 uid="uid://c13gff5yjmbtu"]
 
 [ext_resource type="FontFile" uid="uid://tqn06fp72mux" path="res://_ART/_UI/Fonts/Bungee-Regular.ttf" id="1_1dhyi"]
 [ext_resource type="Script" path="res://_DEV/Scripts/spawnCharacter.gd" id="1_pmp4t"]
@@ -16,6 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://b2kqixwq55ua4" path="res://_ART/_UI/Sprites/S_ui_btn_arrow_flipped.png" id="14_dpqy0"]
 [ext_resource type="Texture2D" uid="uid://54xvxafatkd6" path="res://_ART/_UI/Sprites/S_ui_btn_cross.png" id="15_7srd7"]
 [ext_resource type="Texture2D" uid="uid://yjjdpdnh2h57" path="res://_ART/_UI/Sprites/S_ui_btn_burger.png" id="16_ehfdc"]
+[ext_resource type="Texture2D" uid="uid://nmlef2o5n38l" path="res://_ART/_UI/Sprites/S_ui_btn_checkbox.png" id="17_ohw2w"]
+[ext_resource type="Texture2D" uid="uid://d4ask4pvpsko8" path="res://_ART/_UI/Sprites/S_ui_btn_checkbox_uncheck.png" id="18_omcuf"]
 
 [sub_resource type="Environment" id="Environment_gy0qs"]
 background_mode = 1
@@ -117,6 +119,76 @@ shadow_offset = Vector2(2, 2)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_5ma4l"]
 blend_mode = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ya7tf"]
+bg_color = Color(0.196078, 0.196078, 0.196078, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 6
+expand_margin_left = 20.0
+expand_margin_top = 20.0
+expand_margin_right = 20.0
+expand_margin_bottom = 20.0
+shadow_offset = Vector2(5, 5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_si4oh"]
+font = ExtResource("2_wjmu8")
+font_size = 50
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_34383"]
+blend_mode = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a7drc"]
+bg_color = Color(0.862745, 0.862745, 0.862745, 0.0588235)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="LabelSettings" id="LabelSettings_c7w83"]
+font = ExtResource("2_wjmu8")
+font_size = 25
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_gbauy"]
+blend_mode = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_186ao"]
+bg_color = Color(1, 1, 1, 0.0588235)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_51a5p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c36y6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n7053"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tgy1d"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_grcru"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_de8lm"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_b62gj"]
+color = Color(1, 1, 1, 0.0588235)
+thickness = 10
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_rtmno"]
+color = Color(1, 1, 1, 0.784314)
+thickness = 10
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_518d8"]
+color = Color(1, 1, 1, 0.784314)
+thickness = 10
 
 [node name="Main_CharacterSelection" type="Node3D"]
 
@@ -255,7 +327,6 @@ texture = ExtResource("5_xf1sx")
 expand_mode = 2
 
 [node name="VBox_texts" type="VBoxContainer" parent="_UI/Control_Headers/Control_LeftMenu"]
-z_index = 1
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 1
 anchors_preset = 8
@@ -542,6 +613,241 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_hdbra")
 icon = ExtResource("15_7srd7")
 flat = true
 expand_icon = true
+
+[node name="Control_Settings" type="Control" parent="_UI"]
+visible = false
+z_index = 50
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -425.0
+offset_top = -250.0
+offset_right = 425.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="_UI/Control_Settings"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ya7tf")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="_UI/Control_Settings/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Label_Fullscreen" type="Label" parent="_UI/Control_Settings/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+text = "SETTINGS:"
+label_settings = SubResource("LabelSettings_si4oh")
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Panel_Fullscreen" type="Panel" parent="_UI/Control_Settings/Panel/VBoxContainer"]
+material = SubResource("CanvasItemMaterial_34383")
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_a7drc")
+
+[node name="MgCont_Fullscreen" type="MarginContainer" parent="_UI/Control_Settings/Panel/VBoxContainer/Panel_Fullscreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBox_Fullscreen" type="HBoxContainer" parent="_UI/Control_Settings/Panel/VBoxContainer/Panel_Fullscreen/MgCont_Fullscreen"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label_Fullscreen" type="Label" parent="_UI/Control_Settings/Panel/VBoxContainer/Panel_Fullscreen/MgCont_Fullscreen/HBox_Fullscreen"]
+layout_mode = 2
+text = "Fullscreen mode:"
+label_settings = SubResource("LabelSettings_c7w83")
+vertical_alignment = 1
+
+[node name="Panel_FullscreenToggle" type="Panel" parent="_UI/Control_Settings/Panel/VBoxContainer/Panel_Fullscreen/MgCont_Fullscreen/HBox_Fullscreen"]
+material = SubResource("CanvasItemMaterial_gbauy")
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_186ao")
+
+[node name="CheckBox_FullscreenToggle" type="CheckBox" parent="_UI/Control_Settings/Panel/VBoxContainer/Panel_Fullscreen/MgCont_Fullscreen/HBox_Fullscreen/Panel_FullscreenToggle"]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_right = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_icons/checked = ExtResource("17_ohw2w")
+theme_override_icons/unchecked = ExtResource("18_omcuf")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_51a5p")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_c36y6")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_n7053")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_tgy1d")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_grcru")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_de8lm")
+flat = true
+icon_alignment = 1
+
+[node name="Panel_HideMenus" type="Panel" parent="_UI/Control_Settings/Panel/VBoxContainer"]
+material = SubResource("CanvasItemMaterial_34383")
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_a7drc")
+
+[node name="MgCont_HideMenus" type="MarginContainer" parent="_UI/Control_Settings/Panel/VBoxContainer/Panel_HideMenus"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBox_HideMenus" type="HBoxContainer" parent="_UI/Control_Settings/Panel/VBoxContainer/Panel_HideMenus/MgCont_HideMenus"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label_HideMenus" type="Label" parent="_UI/Control_Settings/Panel/VBoxContainer/Panel_HideMenus/MgCont_HideMenus/HBox_HideMenus"]
+layout_mode = 2
+text = "Fullscreen mode:"
+label_settings = SubResource("LabelSettings_c7w83")
+vertical_alignment = 1
+
+[node name="Panel_HideMenus" type="Panel" parent="_UI/Control_Settings/Panel/VBoxContainer/Panel_HideMenus/MgCont_HideMenus/HBox_HideMenus"]
+material = SubResource("CanvasItemMaterial_gbauy")
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_186ao")
+
+[node name="CheckBox_HideMenus" type="CheckBox" parent="_UI/Control_Settings/Panel/VBoxContainer/Panel_HideMenus/MgCont_HideMenus/HBox_HideMenus/Panel_HideMenus"]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_right = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_icons/checked = ExtResource("17_ohw2w")
+theme_override_icons/unchecked = ExtResource("18_omcuf")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_51a5p")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_c36y6")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_n7053")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_tgy1d")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_grcru")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_de8lm")
+flat = true
+icon_alignment = 1
+
+[node name="Panel_RotationSpd" type="Panel" parent="_UI/Control_Settings/Panel/VBoxContainer"]
+material = SubResource("CanvasItemMaterial_34383")
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_a7drc")
+
+[node name="MgCont_RotationSpd" type="MarginContainer" parent="_UI/Control_Settings/Panel/VBoxContainer/Panel_RotationSpd"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBox_RotationSpd" type="HBoxContainer" parent="_UI/Control_Settings/Panel/VBoxContainer/Panel_RotationSpd/MgCont_RotationSpd"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label_RotationSpd" type="Label" parent="_UI/Control_Settings/Panel/VBoxContainer/Panel_RotationSpd/MgCont_RotationSpd/HBox_RotationSpd"]
+layout_mode = 2
+text = "Character rotation speed:"
+label_settings = SubResource("LabelSettings_c7w83")
+vertical_alignment = 1
+
+[node name="HSlider_RotationSpd" type="HSlider" parent="_UI/Control_Settings/Panel/VBoxContainer/Panel_RotationSpd/MgCont_RotationSpd/HBox_RotationSpd"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_icons/grabber = ExtResource("17_ohw2w")
+theme_override_icons/grabber_highlight = ExtResource("17_ohw2w")
+theme_override_icons/grabber_disabled = ExtResource("18_omcuf")
+theme_override_icons/tick = ExtResource("17_ohw2w")
+theme_override_styles/slider = SubResource("StyleBoxLine_b62gj")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_rtmno")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_518d8")
+
+[node name="Panel_Gamma" type="Panel" parent="_UI/Control_Settings/Panel/VBoxContainer"]
+material = SubResource("CanvasItemMaterial_34383")
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_a7drc")
+
+[node name="MgCont_Gamma" type="MarginContainer" parent="_UI/Control_Settings/Panel/VBoxContainer/Panel_Gamma"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBox_Gamma" type="HBoxContainer" parent="_UI/Control_Settings/Panel/VBoxContainer/Panel_Gamma/MgCont_Gamma"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label_Gamma" type="Label" parent="_UI/Control_Settings/Panel/VBoxContainer/Panel_Gamma/MgCont_Gamma/HBox_Gamma"]
+layout_mode = 2
+text = "Gammas/saturation:"
+label_settings = SubResource("LabelSettings_c7w83")
+vertical_alignment = 1
+
+[node name="HSlider_Gamma" type="HSlider" parent="_UI/Control_Settings/Panel/VBoxContainer/Panel_Gamma/MgCont_Gamma/HBox_Gamma"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_icons/grabber = ExtResource("17_ohw2w")
+theme_override_icons/grabber_highlight = ExtResource("17_ohw2w")
+theme_override_icons/grabber_disabled = ExtResource("18_omcuf")
+theme_override_icons/tick = ExtResource("17_ohw2w")
+theme_override_styles/slider = SubResource("StyleBoxLine_b62gj")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_rtmno")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_518d8")
 
 [connection signal="pressed" from="_UI/Control_Arrows/Button_arrowRight" to="--CharacterHolder" method="_on_button_arrow_right_pressed"]
 [connection signal="pressed" from="_UI/Control_Arrows/Button_arrowLeft" to="--CharacterHolder" method="_on_button_arrow_left_pressed"]

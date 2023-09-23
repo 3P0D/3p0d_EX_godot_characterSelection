@@ -26,7 +26,7 @@ extends Node3D
 #PRIVATE VARIABLES:
 var current = 0
 
-#SCRIPT:
+#---------------------------------GAMEPLAY SCRIPT---------------------------------:
 func _ready():
 	add_child(m_characters[current].instantiate())
 	_updateCharModel(current)
@@ -93,3 +93,7 @@ func _on_button_arrow_left_pressed():
 
 func _on_button_quit_pressed():
 	get_tree().quit()
+	
+#---------------------------------SETTINGS SCRIPT---------------------------------:
+
+
