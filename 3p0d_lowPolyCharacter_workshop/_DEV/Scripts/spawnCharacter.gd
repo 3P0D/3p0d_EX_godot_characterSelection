@@ -17,9 +17,13 @@ extends Node3D
 @onready var _btnQuit : Button = $"../_UI/Control_Menus/MarginContainer_Quit/Button_Quit"
 @onready var _stgpanel : Panel = $"../_UI/Control_Settings/Panel_Settings"
 @onready var _ctrlmenus : Control = $"../_UI/Control_Menus"
+@onready var _sldSat : HSlider = $"../_UI/Control_Settings/Panel_Settings/VBoxContainer/Panel_Saturation/MgCont_Saturation/HBox_Saturation/HSlider_Saturation"
+@onready var _sldBrght : HSlider = $"../_UI/Control_Settings/Panel_Settings/VBoxContainer/Panel_Brightness/MgCont_Brightness/HBox_Brightness/HSlider_Brightness"
+@onready var _sldCont : HSlider = $"../_UI/Control_Settings/Panel_Settings/VBoxContainer/Panel_Contrast/MgCont_Contrast/HBox_Contrast/HSlider_Contrast"
+@onready var _sldSpd : HSlider = $"../_UI/Control_Settings/Panel_Settings/VBoxContainer/Panel_RotationSpd/MgCont_RotationSpd/HBox_RotationSpd/HSlider_RotationSpd"
 
 #PUBLIC VARIABLES:
-@export var m_rotSpd = 3
+@export var m_rotSpd = 0.5
 @export var m_characters:Array[PackedScene]
 @export var m_cylinder : MeshInstance3D
 @export var m_background : WorldEnvironment
@@ -30,12 +34,13 @@ var current : float = 0
 
 #---------------------------------GAMEPLAY SCRIPT---------------------------------:
 func _ready():
+	m_settings.set_visible(false)
 	add_child(m_characters[current].instantiate())
 	_updateCharModel(current)
 	_updateInfos()
 
 func _process(delta):
-	rotate(Vector3(0, 1, 0).normalized(), delta * m_rotSpd)
+	rotate(Vector3(0, -1, 0).normalized(), delta * m_rotSpd)
 
 func _updateCharModel(val):
 	#---sets the min and max of the loop, and increment of the loop at each click.
@@ -107,6 +112,13 @@ func _on_button_menu_pressed():
 
 func _on_button_quit_settings_pressed():
 	m_settings.set_visible(false)
+	
+func _on_check_box_fullscreen_toggle_toggled(button_pressed):
+	if button_pressed:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	else:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+
 
 func _on_check_box_hide_menus_toggled(button_pressed):
 	_ctrlmenus.set_visible(false)
@@ -115,3 +127,23 @@ func _on_check_box_hide_menus_toggled(button_pressed):
 
 func _on_h_slider_rotation_spd_value_changed(value):
 	m_rotSpd = value
+
+func _on_h_slider_saturation_value_changed(value):
+	m_background.environment.set_adjustment_saturation(value)
+
+func _on_h_slider_brightness_value_changed(value):
+	m_background.environment.set_adjustment_brightness(value)
+	
+func _on_h_slider_contrast_value_changed(value):
+	m_background.environment.set_adjustment_contrast(value)
+
+func _on_button_reset_default_pressed():
+	m_background.environment.set_adjustment_contrast(1)
+	_sldSat.value = 1.1
+	m_background.environment.set_adjustment_brightness(1)
+	_sldBrght.value = 1.1
+	m_background.environment.set_adjustment_saturation(1)
+	_sldCont.value = 1.1
+	m_rotSpd = 0.5
+	_sldSpd.value = m_rotSpd
+	_ctrlmenus.set_visible(true)
