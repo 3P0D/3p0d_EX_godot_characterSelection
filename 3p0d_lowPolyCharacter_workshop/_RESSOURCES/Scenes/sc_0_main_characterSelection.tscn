@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://c13gff5yjmbtu"]
+[gd_scene load_steps=58 format=3 uid="uid://c13gff5yjmbtu"]
 
 [ext_resource type="FontFile" uid="uid://tqn06fp72mux" path="res://_ART/_UI/Fonts/Bungee-Regular.ttf" id="1_1dhyi"]
 [ext_resource type="Script" path="res://_DEV/Scripts/spawnCharacter.gd" id="1_pmp4t"]
@@ -190,6 +190,16 @@ thickness = 10
 color = Color(1, 1, 1, 0.784314)
 thickness = 10
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f50po"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gdriy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4c06r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ymik3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pndop"]
+
 [node name="Main_CharacterSelection" type="Node3D"]
 
 [node name="--Environment" type="Node3D" parent="."]
@@ -244,26 +254,13 @@ transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0, 0, 0)
 mesh = SubResource("ArrayMesh_q6eba")
 skeleton = NodePath("")
 
-[node name="--CharacterHolder" type="Node3D" parent="." node_paths=PackedStringArray("m_characterName", "m_artistName", "m_characterDescription", "m_madeby", "m_spt01text", "m_spt01title", "m_spt02text", "m_spt02title", "m_spt01", "m_spt02", "m_btnArrowL", "m_btnArrowR", "m_btnMenu", "m_btnQuit", "m_cylinder", "m_background")]
+[node name="--CharacterHolder" type="Node3D" parent="." node_paths=PackedStringArray("m_cylinder", "m_background", "m_settings")]
 script = ExtResource("1_pmp4t")
 m_rotSpd = 50
 m_characters = Array[PackedScene]([ExtResource("2_nap4n"), ExtResource("3_2ts3b"), ExtResource("6_wcijl"), ExtResource("7_xrhi5")])
-m_characterName = NodePath("../_UI/Control_Headers/Control_LeftMenu/VBox_texts/Label_CharacterName")
-m_artistName = NodePath("../_UI/Control_Headers/Control_LeftMenu/VBox_texts/HBox_MadeByArtistName/Label_ArtistName")
-m_characterDescription = NodePath("../_UI/Control_Headers/Control_LeftMenu/VBox_texts/Label_Description")
-m_madeby = NodePath("../_UI/Control_Headers/Control_LeftMenu/VBox_texts/HBox_MadeByArtistName/Label_MadeBy")
-m_spt01text = NodePath("../_UI/Control_Headers/Control_RightMenu/VBox_sprites/HBox_sprite1/VBox_sprite1/Label_sprite1text")
-m_spt01title = NodePath("../_UI/Control_Headers/Control_RightMenu/VBox_sprites/HBox_sprite1/VBox_sprite1/Label_sprite1title")
-m_spt02text = NodePath("../_UI/Control_Headers/Control_RightMenu/VBox_sprites/HBox_sprite2/VBox_sprite2/Label_sprite2text")
-m_spt02title = NodePath("../_UI/Control_Headers/Control_RightMenu/VBox_sprites/HBox_sprite2/VBox_sprite2/Label_sprite2title")
-m_spt01 = NodePath("../_UI/Control_Headers/Control_RightMenu/VBox_sprites/HBox_sprite1/TextureRect_sprite1")
-m_spt02 = NodePath("../_UI/Control_Headers/Control_RightMenu/VBox_sprites/HBox_sprite2/TextureRect_sprite2")
-m_btnArrowL = NodePath("../_UI/Control_Arrows/Button_arrowLeft")
-m_btnArrowR = NodePath("../_UI/Control_Arrows/Button_arrowRight")
-m_btnMenu = NodePath("../_UI/Control_Menus/MarginContainer_Menu/Button_Menu")
-m_btnQuit = NodePath("../_UI/Control_Menus/MarginContainer_Quit/Button_Quit")
 m_cylinder = NodePath("../--Background/3d_cylinderStage/3d_cylinderStage2")
 m_background = NodePath("../--Environment/WorldEnvironment")
+m_settings = NodePath("../_UI/Control_Settings")
 
 [node name="--Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 3.5)
@@ -630,7 +627,7 @@ offset_bottom = 250.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="Panel" parent="_UI/Control_Settings"]
+[node name="Panel_Settings" type="Panel" parent="_UI/Control_Settings"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -639,7 +636,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ya7tf")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="_UI/Control_Settings/Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="_UI/Control_Settings/Panel_Settings"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -649,7 +646,7 @@ grow_vertical = 2
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="Label_Fullscreen" type="Label" parent="_UI/Control_Settings/Panel/VBoxContainer"]
+[node name="Label_Fullscreen" type="Label" parent="_UI/Control_Settings/Panel_Settings/VBoxContainer"]
 custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
 text = "SETTINGS:"
@@ -657,13 +654,13 @@ label_settings = SubResource("LabelSettings_si4oh")
 horizontal_alignment = 1
 uppercase = true
 
-[node name="Panel_Fullscreen" type="Panel" parent="_UI/Control_Settings/Panel/VBoxContainer"]
+[node name="Panel_Fullscreen" type="Panel" parent="_UI/Control_Settings/Panel_Settings/VBoxContainer"]
 material = SubResource("CanvasItemMaterial_34383")
 custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_a7drc")
 
-[node name="MgCont_Fullscreen" type="MarginContainer" parent="_UI/Control_Settings/Panel/VBoxContainer/Panel_Fullscreen"]
+[node name="MgCont_Fullscreen" type="MarginContainer" parent="_UI/Control_Settings/Panel_Settings/VBoxContainer/Panel_Fullscreen"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -675,23 +672,23 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="HBox_Fullscreen" type="HBoxContainer" parent="_UI/Control_Settings/Panel/VBoxContainer/Panel_Fullscreen/MgCont_Fullscreen"]
+[node name="HBox_Fullscreen" type="HBoxContainer" parent="_UI/Control_Settings/Panel_Settings/VBoxContainer/Panel_Fullscreen/MgCont_Fullscreen"]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="Label_Fullscreen" type="Label" parent="_UI/Control_Settings/Panel/VBoxContainer/Panel_Fullscreen/MgCont_Fullscreen/HBox_Fullscreen"]
+[node name="Label_Fullscreen" type="Label" parent="_UI/Control_Settings/Panel_Settings/VBoxContainer/Panel_Fullscreen/MgCont_Fullscreen/HBox_Fullscreen"]
 layout_mode = 2
 text = "Fullscreen mode:"
 label_settings = SubResource("LabelSettings_c7w83")
 vertical_alignment = 1
 
-[node name="Panel_FullscreenToggle" type="Panel" parent="_UI/Control_Settings/Panel/VBoxContainer/Panel_Fullscreen/MgCont_Fullscreen/HBox_Fullscreen"]
+[node name="Panel_FullscreenToggle" type="Panel" parent="_UI/Control_Settings/Panel_Settings/VBoxContainer/Panel_Fullscreen/MgCont_Fullscreen/HBox_Fullscreen"]
 material = SubResource("CanvasItemMaterial_gbauy")
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_186ao")
 
-[node name="CheckBox_FullscreenToggle" type="CheckBox" parent="_UI/Control_Settings/Panel/VBoxContainer/Panel_Fullscreen/MgCont_Fullscreen/HBox_Fullscreen/Panel_FullscreenToggle"]
+[node name="CheckBox_FullscreenToggle" type="CheckBox" parent="_UI/Control_Settings/Panel_Settings/VBoxContainer/Panel_Fullscreen/MgCont_Fullscreen/HBox_Fullscreen/Panel_FullscreenToggle"]
 layout_direction = 1
 layout_mode = 1
 anchors_preset = 15
@@ -713,13 +710,13 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_de8lm")
 flat = true
 icon_alignment = 1
 
-[node name="Panel_HideMenus" type="Panel" parent="_UI/Control_Settings/Panel/VBoxContainer"]
+[node name="Panel_HideMenus" type="Panel" parent="_UI/Control_Settings/Panel_Settings/VBoxContainer"]
 material = SubResource("CanvasItemMaterial_34383")
 custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_a7drc")
 
-[node name="MgCont_HideMenus" type="MarginContainer" parent="_UI/Control_Settings/Panel/VBoxContainer/Panel_HideMenus"]
+[node name="MgCont_HideMenus" type="MarginContainer" parent="_UI/Control_Settings/Panel_Settings/VBoxContainer/Panel_HideMenus"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -731,23 +728,23 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="HBox_HideMenus" type="HBoxContainer" parent="_UI/Control_Settings/Panel/VBoxContainer/Panel_HideMenus/MgCont_HideMenus"]
+[node name="HBox_HideMenus" type="HBoxContainer" parent="_UI/Control_Settings/Panel_Settings/VBoxContainer/Panel_HideMenus/MgCont_HideMenus"]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="Label_HideMenus" type="Label" parent="_UI/Control_Settings/Panel/VBoxContainer/Panel_HideMenus/MgCont_HideMenus/HBox_HideMenus"]
+[node name="Label_HideMenus" type="Label" parent="_UI/Control_Settings/Panel_Settings/VBoxContainer/Panel_HideMenus/MgCont_HideMenus/HBox_HideMenus"]
 layout_mode = 2
 text = "Fullscreen mode:"
 label_settings = SubResource("LabelSettings_c7w83")
 vertical_alignment = 1
 
-[node name="Panel_HideMenus" type="Panel" parent="_UI/Control_Settings/Panel/VBoxContainer/Panel_HideMenus/MgCont_HideMenus/HBox_HideMenus"]
+[node name="Panel_HideMenus" type="Panel" parent="_UI/Control_Settings/Panel_Settings/VBoxContainer/Panel_HideMenus/MgCont_HideMenus/HBox_HideMenus"]
 material = SubResource("CanvasItemMaterial_gbauy")
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_186ao")
 
-[node name="CheckBox_HideMenus" type="CheckBox" parent="_UI/Control_Settings/Panel/VBoxContainer/Panel_HideMenus/MgCont_HideMenus/HBox_HideMenus/Panel_HideMenus"]
+[node name="CheckBox_HideMenus" type="CheckBox" parent="_UI/Control_Settings/Panel_Settings/VBoxContainer/Panel_HideMenus/MgCont_HideMenus/HBox_HideMenus/Panel_HideMenus"]
 layout_direction = 1
 layout_mode = 1
 anchors_preset = 15
@@ -769,13 +766,13 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_de8lm")
 flat = true
 icon_alignment = 1
 
-[node name="Panel_RotationSpd" type="Panel" parent="_UI/Control_Settings/Panel/VBoxContainer"]
+[node name="Panel_RotationSpd" type="Panel" parent="_UI/Control_Settings/Panel_Settings/VBoxContainer"]
 material = SubResource("CanvasItemMaterial_34383")
 custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_a7drc")
 
-[node name="MgCont_RotationSpd" type="MarginContainer" parent="_UI/Control_Settings/Panel/VBoxContainer/Panel_RotationSpd"]
+[node name="MgCont_RotationSpd" type="MarginContainer" parent="_UI/Control_Settings/Panel_Settings/VBoxContainer/Panel_RotationSpd"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -787,17 +784,17 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="HBox_RotationSpd" type="HBoxContainer" parent="_UI/Control_Settings/Panel/VBoxContainer/Panel_RotationSpd/MgCont_RotationSpd"]
+[node name="HBox_RotationSpd" type="HBoxContainer" parent="_UI/Control_Settings/Panel_Settings/VBoxContainer/Panel_RotationSpd/MgCont_RotationSpd"]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="Label_RotationSpd" type="Label" parent="_UI/Control_Settings/Panel/VBoxContainer/Panel_RotationSpd/MgCont_RotationSpd/HBox_RotationSpd"]
+[node name="Label_RotationSpd" type="Label" parent="_UI/Control_Settings/Panel_Settings/VBoxContainer/Panel_RotationSpd/MgCont_RotationSpd/HBox_RotationSpd"]
 layout_mode = 2
 text = "Character rotation speed:"
 label_settings = SubResource("LabelSettings_c7w83")
 vertical_alignment = 1
 
-[node name="HSlider_RotationSpd" type="HSlider" parent="_UI/Control_Settings/Panel/VBoxContainer/Panel_RotationSpd/MgCont_RotationSpd/HBox_RotationSpd"]
+[node name="HSlider_RotationSpd" type="HSlider" parent="_UI/Control_Settings/Panel_Settings/VBoxContainer/Panel_RotationSpd/MgCont_RotationSpd/HBox_RotationSpd"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -809,13 +806,13 @@ theme_override_styles/slider = SubResource("StyleBoxLine_b62gj")
 theme_override_styles/grabber_area = SubResource("StyleBoxLine_rtmno")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_518d8")
 
-[node name="Panel_Gamma" type="Panel" parent="_UI/Control_Settings/Panel/VBoxContainer"]
+[node name="Panel_Gamma" type="Panel" parent="_UI/Control_Settings/Panel_Settings/VBoxContainer"]
 material = SubResource("CanvasItemMaterial_34383")
 custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_a7drc")
 
-[node name="MgCont_Gamma" type="MarginContainer" parent="_UI/Control_Settings/Panel/VBoxContainer/Panel_Gamma"]
+[node name="MgCont_Gamma" type="MarginContainer" parent="_UI/Control_Settings/Panel_Settings/VBoxContainer/Panel_Gamma"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -827,17 +824,17 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="HBox_Gamma" type="HBoxContainer" parent="_UI/Control_Settings/Panel/VBoxContainer/Panel_Gamma/MgCont_Gamma"]
+[node name="HBox_Gamma" type="HBoxContainer" parent="_UI/Control_Settings/Panel_Settings/VBoxContainer/Panel_Gamma/MgCont_Gamma"]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="Label_Gamma" type="Label" parent="_UI/Control_Settings/Panel/VBoxContainer/Panel_Gamma/MgCont_Gamma/HBox_Gamma"]
+[node name="Label_Gamma" type="Label" parent="_UI/Control_Settings/Panel_Settings/VBoxContainer/Panel_Gamma/MgCont_Gamma/HBox_Gamma"]
 layout_mode = 2
 text = "Gammas/saturation:"
 label_settings = SubResource("LabelSettings_c7w83")
 vertical_alignment = 1
 
-[node name="HSlider_Gamma" type="HSlider" parent="_UI/Control_Settings/Panel/VBoxContainer/Panel_Gamma/MgCont_Gamma/HBox_Gamma"]
+[node name="HSlider_Gamma" type="HSlider" parent="_UI/Control_Settings/Panel_Settings/VBoxContainer/Panel_Gamma/MgCont_Gamma/HBox_Gamma"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -849,6 +846,25 @@ theme_override_styles/slider = SubResource("StyleBoxLine_b62gj")
 theme_override_styles/grabber_area = SubResource("StyleBoxLine_rtmno")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_518d8")
 
+[node name="Button_QuitSettings" type="Button" parent="_UI/Control_Settings/Panel_Settings"]
+modulate = Color(1, 1, 1, 0.196078)
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 1
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 50.0
+offset_bottom = 50.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_f50po")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_gdriy")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_4c06r")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ymik3")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pndop")
+icon = ExtResource("15_7srd7")
+flat = true
+expand_icon = true
+
 [connection signal="pressed" from="_UI/Control_Arrows/Button_arrowRight" to="--CharacterHolder" method="_on_button_arrow_right_pressed"]
 [connection signal="pressed" from="_UI/Control_Arrows/Button_arrowLeft" to="--CharacterHolder" method="_on_button_arrow_left_pressed"]
+[connection signal="pressed" from="_UI/Control_Menus/MarginContainer_Menu/Button_Menu" to="--CharacterHolder" method="_on_button_menu_pressed"]
 [connection signal="pressed" from="_UI/Control_Menus/MarginContainer_Quit/Button_Quit" to="--CharacterHolder" method="_on_button_quit_pressed"]
+[connection signal="pressed" from="_UI/Control_Settings/Panel_Settings/Button_QuitSettings" to="--CharacterHolder" method="_on_button_quit_settings_pressed"]
