@@ -1,9 +1,7 @@
-[gd_scene load_steps=27 format=3 uid="uid://c13gff5yjmbtu"]
+[gd_scene load_steps=35 format=3 uid="uid://c13gff5yjmbtu"]
 
 [ext_resource type="FontFile" uid="uid://tqn06fp72mux" path="res://_ART/_UI/Fonts/Bungee-Regular.ttf" id="1_1dhyi"]
 [ext_resource type="Script" path="res://_DEV/Scripts/spawnCharacter.gd" id="1_pmp4t"]
-[ext_resource type="Texture2D" uid="uid://bvsrygtgd2tnv" path="res://_ART/_UI/Sprites/S_ui_arrow_right.png" id="1_s1lca"]
-[ext_resource type="Texture2D" uid="uid://b47x66qlustwh" path="res://_ART/_UI/Sprites/S_ui_arrow_left.png" id="2_hy4iq"]
 [ext_resource type="PackedScene" uid="uid://d6al8mk3mthk" path="res://_RESSOURCES/Prefabs/P_character_placeholder.tscn" id="2_nap4n"]
 [ext_resource type="FontFile" uid="uid://b5xhpgjw4jjmk" path="res://_ART/_UI/Fonts/LilitaOne-Regular.ttf" id="2_wjmu8"]
 [ext_resource type="PackedScene" uid="uid://k4m5bi1o7pit" path="res://_RESSOURCES/Prefabs/P_character_astronaute.tscn" id="3_2ts3b"]
@@ -14,6 +12,10 @@
 [ext_resource type="Texture2D" uid="uid://cifjg5a3v355h" path="res://_ART/_UI/Sprites/S_ui_vignette.png" id="7_0kr0y"]
 [ext_resource type="PackedScene" uid="uid://dvfbcfvoaf7p0" path="res://_RESSOURCES/Prefabs/P_character_tvpod.tscn" id="7_xrhi5"]
 [ext_resource type="Texture2D" uid="uid://hapunktubj8f" path="res://_ART/_UI/Sprites/S_ui_gaming300.png" id="10_paj11"]
+[ext_resource type="Texture2D" uid="uid://7rg3cbx5nk0x" path="res://_ART/_UI/Sprites/S_ui_btn_arrow.png" id="13_4bcie"]
+[ext_resource type="Texture2D" uid="uid://b2kqixwq55ua4" path="res://_ART/_UI/Sprites/S_ui_btn_arrow_flipped.png" id="14_dpqy0"]
+[ext_resource type="Texture2D" uid="uid://54xvxafatkd6" path="res://_ART/_UI/Sprites/S_ui_btn_cross.png" id="15_7srd7"]
+[ext_resource type="Texture2D" uid="uid://yjjdpdnh2h57" path="res://_ART/_UI/Sprites/S_ui_btn_burger.png" id="16_ehfdc"]
 
 [sub_resource type="Environment" id="Environment_gy0qs"]
 background_mode = 1
@@ -80,7 +82,6 @@ blend_mode = 2
 [sub_resource type="LabelSettings" id="LabelSettings_b1iva"]
 font = ExtResource("1_1dhyi")
 font_size = 40
-font_color = Color(1, 0.356863, 1, 1)
 shadow_color = Color(0, 0, 0, 0.196078)
 shadow_offset = Vector2(2, 2)
 
@@ -91,7 +92,6 @@ font_size = 22
 [sub_resource type="LabelSettings" id="LabelSettings_4vmgu"]
 font = ExtResource("2_wjmu8")
 font_size = 30
-font_color = Color(1, 0.356863, 1, 1)
 shadow_color = Color(0, 0, 0, 0.196078)
 shadow_offset = Vector2(2, 2)
 
@@ -104,6 +104,19 @@ shadow_color = Color(0, 0, 0, 0.196078)
 shadow_offset = Vector2(2, 2)
 
 [sub_resource type="LabelSettings" id="LabelSettings_gcrq0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tfrlr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eoyi5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rdrrb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gqqcm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hdbra"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_5ma4l"]
+blend_mode = 1
 
 [node name="Main_CharacterSelection" type="Node3D"]
 
@@ -159,22 +172,26 @@ transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0, 0, 0)
 mesh = SubResource("ArrayMesh_q6eba")
 skeleton = NodePath("")
 
-[node name="--CharacterHolder" type="Node3D" parent="." node_paths=PackedStringArray("m_characterName", "m_artistName", "m_characterDescription", "m_madeby", "m_background", "m_spt01", "m_spt02", "m_spt01text", "m_spt01title", "m_spt02text", "m_spt02title", "m_cylinder")]
+[node name="--CharacterHolder" type="Node3D" parent="." node_paths=PackedStringArray("m_characterName", "m_artistName", "m_characterDescription", "m_madeby", "m_spt01text", "m_spt01title", "m_spt02text", "m_spt02title", "m_spt01", "m_spt02", "m_btnArrowL", "m_btnArrowR", "m_btnMenu", "m_btnQuit", "m_cylinder", "m_background")]
 script = ExtResource("1_pmp4t")
 m_rotSpd = 50
 m_characters = Array[PackedScene]([ExtResource("2_nap4n"), ExtResource("3_2ts3b"), ExtResource("6_wcijl"), ExtResource("7_xrhi5")])
-m_characterName = NodePath("../_UI/Control_Sprites/VBox_texts/Label_CharacterName")
-m_artistName = NodePath("../_UI/Control_Sprites/VBox_texts/HBox_MadeByArtistName/Label_ArtistName")
-m_characterDescription = NodePath("../_UI/Control_Sprites/VBox_texts/Label_Description")
-m_madeby = NodePath("../_UI/Control_Sprites/VBox_texts/HBox_MadeByArtistName/Label_MadeBy")
-m_background = NodePath("../--Environment/WorldEnvironment")
-m_spt01 = NodePath("../_UI/Control_Sprites/VBox_sprites/HBox_sprite1/TextureRect_sprite1")
-m_spt02 = NodePath("../_UI/Control_Sprites/VBox_sprites/HBox_sprite2/TextureRect_sprite2")
-m_spt01text = NodePath("../_UI/Control_Sprites/VBox_sprites/HBox_sprite1/VBox_sprite1/Label_sprite1text")
-m_spt01title = NodePath("../_UI/Control_Sprites/VBox_sprites/HBox_sprite1/VBox_sprite1/Label_sprite1title")
-m_spt02text = NodePath("../_UI/Control_Sprites/VBox_sprites/HBox_sprite2/VBox_sprite2/Label_sprite2text")
-m_spt02title = NodePath("../_UI/Control_Sprites/VBox_sprites/HBox_sprite2/VBox_sprite2/Label_sprite2title")
+m_characterName = NodePath("../_UI/Control_Headers/Control_LeftMenu/VBox_texts/Label_CharacterName")
+m_artistName = NodePath("../_UI/Control_Headers/Control_LeftMenu/VBox_texts/HBox_MadeByArtistName/Label_ArtistName")
+m_characterDescription = NodePath("../_UI/Control_Headers/Control_LeftMenu/VBox_texts/Label_Description")
+m_madeby = NodePath("../_UI/Control_Headers/Control_LeftMenu/VBox_texts/HBox_MadeByArtistName/Label_MadeBy")
+m_spt01text = NodePath("../_UI/Control_Headers/Control_RightMenu/VBox_sprites/HBox_sprite1/VBox_sprite1/Label_sprite1text")
+m_spt01title = NodePath("../_UI/Control_Headers/Control_RightMenu/VBox_sprites/HBox_sprite1/VBox_sprite1/Label_sprite1title")
+m_spt02text = NodePath("../_UI/Control_Headers/Control_RightMenu/VBox_sprites/HBox_sprite2/VBox_sprite2/Label_sprite2text")
+m_spt02title = NodePath("../_UI/Control_Headers/Control_RightMenu/VBox_sprites/HBox_sprite2/VBox_sprite2/Label_sprite2title")
+m_spt01 = NodePath("../_UI/Control_Headers/Control_RightMenu/VBox_sprites/HBox_sprite1/TextureRect_sprite1")
+m_spt02 = NodePath("../_UI/Control_Headers/Control_RightMenu/VBox_sprites/HBox_sprite2/TextureRect_sprite2")
+m_btnArrowL = NodePath("../_UI/Control_Arrows/Button_arrowLeft")
+m_btnArrowR = NodePath("../_UI/Control_Arrows/Button_arrowRight")
+m_btnMenu = NodePath("../_UI/Control_Menus/MarginContainer_Menu/Button_Menu")
+m_btnQuit = NodePath("../_UI/Control_Menus/MarginContainer_Quit/Button_Quit")
 m_cylinder = NodePath("../--Background/3d_cylinderStage/3d_cylinderStage2")
+m_background = NodePath("../--Environment/WorldEnvironment")
 
 [node name="--Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 3.5)
@@ -189,7 +206,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect3" type="TextureRect" parent="_UI"]
+[node name="TextureRect_Vignette" type="TextureRect" parent="_UI"]
 self_modulate = Color(0.0823529, 0.0823529, 0.0823529, 1)
 texture_filter = 2
 texture_repeat = 2
@@ -203,21 +220,27 @@ grow_vertical = 2
 texture = ExtResource("7_0kr0y")
 expand_mode = 1
 
-[node name="Control_Sprites" type="Control" parent="_UI"]
+[node name="Control_Headers" type="Control" parent="_UI"]
 layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
+anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -40.0
-offset_bottom = -40.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="_UI/Control_Sprites"]
+[node name="Control_LeftMenu" type="Control" parent="_UI/Control_Headers"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -225.0
+offset_right = 800.0
+offset_bottom = 225.0
+grow_vertical = 2
+
+[node name="TxRct_BgL" type="TextureRect" parent="_UI/Control_Headers/Control_LeftMenu"]
 modulate = Color(0.5, 0.5, 0.5, 1)
 self_modulate = Color(0.168627, 0.168627, 0.168627, 1)
-show_behind_parent = true
 texture_filter = 2
 material = SubResource("CanvasItemMaterial_wk8uw")
 layout_mode = 1
@@ -231,7 +254,69 @@ grow_vertical = 2
 texture = ExtResource("5_xf1sx")
 expand_mode = 2
 
-[node name="TextureRect2" type="TextureRect" parent="_UI/Control_Sprites"]
+[node name="VBox_texts" type="VBoxContainer" parent="_UI/Control_Headers/Control_LeftMenu"]
+z_index = 1
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -125.0
+offset_right = 200.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Label_CharacterName" type="Label" parent="_UI/Control_Headers/Control_LeftMenu/VBox_texts"]
+layout_mode = 2
+text = "Character Name"
+label_settings = SubResource("LabelSettings_b1iva")
+
+[node name="HBox_MadeByArtistName" type="HBoxContainer" parent="_UI/Control_Headers/Control_LeftMenu/VBox_texts"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label_MadeBy" type="Label" parent="_UI/Control_Headers/Control_LeftMenu/VBox_texts/HBox_MadeByArtistName"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Réalisé par :"
+label_settings = SubResource("LabelSettings_6nekv")
+vertical_alignment = 1
+uppercase = true
+
+[node name="Label_ArtistName" type="Label" parent="_UI/Control_Headers/Control_LeftMenu/VBox_texts/HBox_MadeByArtistName"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Artist Name"
+label_settings = SubResource("LabelSettings_4vmgu")
+vertical_alignment = 1
+uppercase = true
+
+[node name="Label_Description" type="Label" parent="_UI/Control_Headers/Control_LeftMenu/VBox_texts"]
+layout_mode = 2
+text = "Character DescriptionLorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque rutrum lacus eget mattis posuere. Fusce auctor, turpis eget dictum dictum."
+label_settings = SubResource("LabelSettings_cnbh5")
+autowrap_mode = 3
+
+[node name="Control_RightMenu" type="Control" parent="_UI/Control_Headers"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -800.0
+offset_top = -225.0
+offset_bottom = 225.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="TxRct_BgR" type="TextureRect" parent="_UI/Control_Headers/Control_RightMenu"]
 modulate = Color(0.5, 0.5, 0.5, 1)
 self_modulate = Color(0.168627, 0.168627, 0.168627, 1)
 show_behind_parent = true
@@ -253,7 +338,7 @@ expand_mode = 2
 flip_h = true
 flip_v = true
 
-[node name="VBox_texts" type="VBoxContainer" parent="_UI/Control_Sprites"]
+[node name="VBox_sprites" type="VBoxContainer" parent="_UI/Control_Headers/Control_RightMenu"]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 1
 anchors_preset = 8
@@ -261,68 +346,20 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -860.0
+offset_left = -170.0
 offset_top = -125.0
-offset_right = -360.0
+offset_right = 330.0
 offset_bottom = 125.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="Label_CharacterName" type="Label" parent="_UI/Control_Sprites/VBox_texts"]
-layout_mode = 2
-text = "Character Name"
-label_settings = SubResource("LabelSettings_b1iva")
-
-[node name="HBox_MadeByArtistName" type="HBoxContainer" parent="_UI/Control_Sprites/VBox_texts"]
+[node name="HBox_sprite1" type="HBoxContainer" parent="_UI/Control_Headers/Control_RightMenu/VBox_sprites"]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="Label_MadeBy" type="Label" parent="_UI/Control_Sprites/VBox_texts/HBox_MadeByArtistName"]
-layout_mode = 2
-size_flags_vertical = 1
-text = "Réalisé par :"
-label_settings = SubResource("LabelSettings_6nekv")
-vertical_alignment = 1
-uppercase = true
-
-[node name="Label_ArtistName" type="Label" parent="_UI/Control_Sprites/VBox_texts/HBox_MadeByArtistName"]
-layout_mode = 2
-size_flags_vertical = 1
-text = "Artist Name"
-label_settings = SubResource("LabelSettings_4vmgu")
-vertical_alignment = 1
-uppercase = true
-
-[node name="Label_Description" type="Label" parent="_UI/Control_Sprites/VBox_texts"]
-layout_mode = 2
-text = "Character DescriptionLorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque rutrum lacus eget mattis posuere. Fusce auctor, turpis eget dictum dictum."
-label_settings = SubResource("LabelSettings_cnbh5")
-autowrap_mode = 3
-
-[node name="VBox_sprites" type="VBoxContainer" parent="_UI/Control_Sprites"]
-custom_minimum_size = Vector2(500, 0)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 390.0
-offset_top = -125.0
-offset_right = 890.0
-offset_bottom = 125.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 20
-alignment = 1
-
-[node name="HBox_sprite1" type="HBoxContainer" parent="_UI/Control_Sprites/VBox_sprites"]
-layout_mode = 2
-theme_override_constants/separation = 20
-
-[node name="TextureRect_sprite1" type="TextureRect" parent="_UI/Control_Sprites/VBox_sprites/HBox_sprite1"]
+[node name="TextureRect_sprite1" type="TextureRect" parent="_UI/Control_Headers/Control_RightMenu/VBox_sprites/HBox_sprite1"]
 custom_minimum_size = Vector2(85, 85)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -330,13 +367,13 @@ size_flags_vertical = 4
 texture = ExtResource("3_v5mr5")
 expand_mode = 1
 
-[node name="VBox_sprite1" type="VBoxContainer" parent="_UI/Control_Sprites/VBox_sprites/HBox_sprite1"]
+[node name="VBox_sprite1" type="VBoxContainer" parent="_UI/Control_Headers/Control_RightMenu/VBox_sprites/HBox_sprite1"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme_override_constants/separation = 5
 alignment = 1
 
-[node name="Label_sprite1title" type="Label" parent="_UI/Control_Sprites/VBox_sprites/HBox_sprite1/VBox_sprite1"]
+[node name="Label_sprite1title" type="Label" parent="_UI/Control_Headers/Control_RightMenu/VBox_sprites/HBox_sprite1/VBox_sprite1"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -346,7 +383,7 @@ label_settings = SubResource("LabelSettings_60ufk")
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="Label_sprite1text" type="Label" parent="_UI/Control_Sprites/VBox_sprites/HBox_sprite1/VBox_sprite1"]
+[node name="Label_sprite1text" type="Label" parent="_UI/Control_Headers/Control_RightMenu/VBox_sprites/HBox_sprite1/VBox_sprite1"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -356,11 +393,11 @@ label_settings = SubResource("LabelSettings_gcrq0")
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="HBox_sprite2" type="HBoxContainer" parent="_UI/Control_Sprites/VBox_sprites"]
+[node name="HBox_sprite2" type="HBoxContainer" parent="_UI/Control_Headers/Control_RightMenu/VBox_sprites"]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="TextureRect_sprite2" type="TextureRect" parent="_UI/Control_Sprites/VBox_sprites/HBox_sprite2"]
+[node name="TextureRect_sprite2" type="TextureRect" parent="_UI/Control_Headers/Control_RightMenu/VBox_sprites/HBox_sprite2"]
 custom_minimum_size = Vector2(85, 85)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -368,13 +405,13 @@ size_flags_vertical = 4
 texture = ExtResource("3_v5mr5")
 expand_mode = 1
 
-[node name="VBox_sprite2" type="VBoxContainer" parent="_UI/Control_Sprites/VBox_sprites/HBox_sprite2"]
+[node name="VBox_sprite2" type="VBoxContainer" parent="_UI/Control_Headers/Control_RightMenu/VBox_sprites/HBox_sprite2"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme_override_constants/separation = 5
 alignment = 1
 
-[node name="Label_sprite2title" type="Label" parent="_UI/Control_Sprites/VBox_sprites/HBox_sprite2/VBox_sprite2"]
+[node name="Label_sprite2title" type="Label" parent="_UI/Control_Headers/Control_RightMenu/VBox_sprites/HBox_sprite2/VBox_sprite2"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -384,7 +421,7 @@ label_settings = SubResource("LabelSettings_60ufk")
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="Label_sprite2text" type="Label" parent="_UI/Control_Sprites/VBox_sprites/HBox_sprite2/VBox_sprite2"]
+[node name="Label_sprite2text" type="Label" parent="_UI/Control_Headers/Control_RightMenu/VBox_sprites/HBox_sprite2/VBox_sprite2"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -393,7 +430,7 @@ text = "Description de la capacité/du trait 02."
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="Ctrl_Arrows" type="Control" parent="_UI"]
+[node name="Control_Arrows" type="Control" parent="_UI"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -407,7 +444,9 @@ offset_bottom = -152.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="Button_arrowRight" type="Button" parent="_UI/Ctrl_Arrows"]
+[node name="Button_arrowRight" type="Button" parent="_UI/Control_Arrows"]
+texture_filter = 2
+texture_repeat = 1
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -419,11 +458,18 @@ offset_top = -4.0
 offset_bottom = 4.0
 grow_horizontal = 0
 grow_vertical = 2
-icon = ExtResource("1_s1lca")
+theme_override_colors/icon_hover_color = Color(1, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_tfrlr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_eoyi5")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_rdrrb")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_gqqcm")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hdbra")
+action_mode = 0
+icon = ExtResource("13_4bcie")
 flat = true
 icon_alignment = 1
 
-[node name="Button_arrowLeft" type="Button" parent="_UI/Ctrl_Arrows"]
+[node name="Button_arrowLeft" type="Button" parent="_UI/Control_Arrows"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -432,8 +478,71 @@ offset_top = -4.0
 offset_right = 8.0
 offset_bottom = 4.0
 grow_vertical = 2
-icon = ExtResource("2_hy4iq")
+theme_override_colors/icon_hover_color = Color(1, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_tfrlr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_eoyi5")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_rdrrb")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_gqqcm")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hdbra")
+action_mode = 0
+icon = ExtResource("14_dpqy0")
 flat = true
 
-[connection signal="pressed" from="_UI/Ctrl_Arrows/Button_arrowRight" to="--CharacterHolder" method="_on_button_arrow_right_pressed"]
-[connection signal="pressed" from="_UI/Ctrl_Arrows/Button_arrowLeft" to="--CharacterHolder" method="_on_button_arrow_left_pressed"]
+[node name="Control_Menus" type="Control" parent="_UI"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 60.0
+grow_horizontal = 2
+
+[node name="MarginContainer_Menu" type="MarginContainer" parent="_UI/Control_Menus"]
+layout_mode = 1
+offset_right = 60.0
+offset_bottom = 60.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Button_Menu" type="Button" parent="_UI/Control_Menus/MarginContainer_Menu"]
+self_modulate = Color(1, 1, 1, 0.0588235)
+material = SubResource("CanvasItemMaterial_5ma4l")
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_tfrlr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_eoyi5")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_rdrrb")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_gqqcm")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hdbra")
+icon = ExtResource("16_ehfdc")
+flat = true
+expand_icon = true
+
+[node name="MarginContainer_Quit" type="MarginContainer" parent="_UI/Control_Menus"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -60.0
+offset_bottom = 60.0
+grow_horizontal = 0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Button_Quit" type="Button" parent="_UI/Control_Menus/MarginContainer_Quit"]
+self_modulate = Color(1, 1, 1, 0.0588235)
+material = SubResource("CanvasItemMaterial_5ma4l")
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_tfrlr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_eoyi5")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_rdrrb")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_gqqcm")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hdbra")
+icon = ExtResource("15_7srd7")
+flat = true
+expand_icon = true
+
+[connection signal="pressed" from="_UI/Control_Arrows/Button_arrowRight" to="--CharacterHolder" method="_on_button_arrow_right_pressed"]
+[connection signal="pressed" from="_UI/Control_Arrows/Button_arrowLeft" to="--CharacterHolder" method="_on_button_arrow_left_pressed"]
+[connection signal="pressed" from="_UI/Control_Menus/MarginContainer_Quit/Button_Quit" to="--CharacterHolder" method="_on_button_quit_pressed"]

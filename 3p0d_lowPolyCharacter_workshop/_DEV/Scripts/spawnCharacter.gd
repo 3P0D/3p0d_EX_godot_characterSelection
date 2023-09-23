@@ -9,14 +9,19 @@ extends Node3D
 @export var m_artistName : Label
 @export var m_characterDescription : Label
 @export var m_madeby : Label
-@export var m_background : WorldEnvironment
-@export var m_spt01 : TextureRect
-@export var m_spt02 : TextureRect
 @export var m_spt01text : Label
 @export var m_spt01title : Label
 @export var m_spt02text : Label
 @export var m_spt02title : Label
+@export var m_spt01 : TextureRect
+@export var m_spt02 : TextureRect
+@export var m_btnArrowL : Button
+@export var m_btnArrowR : Button
+@export var m_btnMenu : Button
+@export var m_btnQuit : Button
 @export var m_cylinder : MeshInstance3D
+@export var m_background : WorldEnvironment
+
 
 #PRIVATE VARIABLES:
 var current = 0
@@ -65,6 +70,9 @@ func _updateInfos():
 	m_cylinder.mesh.surface_get_material(0).albedo_color = get_child(1).get_meta('backgroundColor')
 	m_spt01title.label_settings.font_color = get_child(1).get_meta('headersColor')
 	
+	m_btnArrowR.set("theme_override_colors/icon_hover_color", get_child(1).get_meta('headersColor'))
+	m_btnArrowL.set("theme_override_colors/icon_hover_color", get_child(1).get_meta('headersColor'))
+	
 	#set the sprites images.
 	m_spt01.set_texture(load(str(get_child(1).get_meta('image01'))))
 	m_spt02.set_texture(load(str(get_child(1).get_meta('image02'))))
@@ -77,9 +85,11 @@ func _updateInfos():
 	
 	print("updated!")
 
-
 func _on_button_arrow_right_pressed():
 	_updateCharModel(1)
 
 func _on_button_arrow_left_pressed():
 	_updateCharModel(-1)
+
+func _on_button_quit_pressed():
+	get_tree().quit()
