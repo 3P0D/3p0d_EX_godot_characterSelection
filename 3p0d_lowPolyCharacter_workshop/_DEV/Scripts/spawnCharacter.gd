@@ -109,6 +109,11 @@ func _setDefaultEnv():
 	m_background.environment.set_adjustment_saturation(1.2)
 	_sldSat.value = 1.2
 
+#---------------------------------GAMEPLAY SIGNALS---------------------------------:
+
+func _on_timer_no_activity_timeout():
+	_updateCharModel(1)
+
 func _on_button_arrow_right_pressed():
 	_updateCharModel(1)
 
@@ -119,7 +124,7 @@ func _on_button_quit_pressed():
 	get_tree().quit()
 
 
-#---------------------------------SETTINGS SCRIPT---------------------------------:
+#---------------------------------SETTINGS SIGNALS---------------------------------:
 func _input(ev):
 	if Input.is_action_pressed("right"):
 		_updateCharModel(1)

@@ -50,4 +50,7 @@ anti_aliasing/quality/msaa_3d=1
 anti_aliasing/quality/use_debanding=true
 2d/snap/snap_2d_transforms_to_pixel=true
 2d/snap/snap_2d_vertices_to_pixel=true
+lights_and_shadows/positional_shadow/atlas_quadrant_0_subdiv=4
+lights_and_shadows/positional_shadow/atlas_quadrant_1_subdiv=4
+lights_and_shadows/positional_shadow/atlas_quadrant_2_subdiv=4
 2d/sdf/oversize=0
